@@ -36,7 +36,6 @@
         android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic"
         android:contentDescription="@string/doggies" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
