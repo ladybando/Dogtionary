@@ -23,5 +23,8 @@ class MainActivity : AppCompatActivity() {
             val status = it.statusResponse!!
             binding.textView.text = status
         })
+        binding.button.setOnClickListener {
+            viewModel.getNewPhoto()
+        }
     }
 }
