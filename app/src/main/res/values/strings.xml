@@ -2,4 +2,6 @@
     <string name="app_name">TheDoggieSaurus</string>
     <string name="next">Next</string>
     <string name="doggies">Doggies!!</string>
+    <string name="submit">Submit</string>
+    <string name="breed">Breed</string>
 </resources>

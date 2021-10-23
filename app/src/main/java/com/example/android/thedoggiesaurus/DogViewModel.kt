@@ -17,8 +17,12 @@ class DogViewModel : ViewModel() {
     }
 
     fun getNewPhoto(){
-        viewModelScope.launch {
-            _dogPhoto.value = DogPhotoApi.retrofitService.getRandomPhoto()
+        try {
+            viewModelScope.launch {
+                _dogPhoto.value = DogPhotoApi.retrofitService.getRandomPhoto()
+            }
+        }catch (e: Exception){
+            "Failure: ${e.message}"
         }
     }
 }
