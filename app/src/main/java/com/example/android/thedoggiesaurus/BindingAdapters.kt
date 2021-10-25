@@ -10,11 +10,14 @@ import coil.load
 fun bindImage(dogImgView: ImageView, mssgUrl: String?) {
     mssgUrl?.let {
         val imgUri = mssgUrl.toUri().buildUpon().scheme("https").build()
-        dogImgView.load(imgUri)
+        dogImgView.load(imgUri){
+            placeholder(R.drawable.loading_animation)
+            error(R.drawable.ic_broken_image)
+        }
     }
 }
 
-@BindingAdapter("dogBreed")
+@BindingAdapter("breeds")
 fun bindBreedText(dogEditText: EditText, breed: String?) {
     breed?.let {
         dogEditText.setText(breed)

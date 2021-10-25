@@ -28,13 +28,14 @@ class DogDisplayFragment : Fragment() {
 
         button = binding.button
         userInput = binding.editTextDogBreed
-        var userInputtedBreed = userInput.text.toString()
+        //val userInputtedBreed = userInput.text.toString()
         button.setOnClickListener {
-            if (userInputtedBreed.isNullOrEmpty()) {
+           /* if (userInputtedBreed.isNotEmpty()) {
+                viewModel.getNewPhotoByBreed(userInputtedBreed)
+            }else {*/
                 viewModel.getNewPhoto()
-            }else {
-                viewModel.getNewPhotoByBreed(userInputtedBreed)//null pointer exception from viewModel
-            }
+                //null pointer exception from viewModel
+         /*   }*/
         }
         return binding.root
     }

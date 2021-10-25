@@ -35,7 +35,7 @@
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:padding="4dp"
-            app:dogBreed="@{viewModel.breed}"
+            app:breeds="@{viewModel.breed}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

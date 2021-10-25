@@ -16,8 +16,9 @@ class DogViewModel : ViewModel() {
     val breed: LiveData<String> = _breed
 
     init {
+       // getNewPhotoByBreed(_breed.value)
         getNewPhoto()
-        getNewPhotoByBreed(_breed.value)
+
     }
 
     fun getNewPhoto() {
@@ -29,7 +30,7 @@ class DogViewModel : ViewModel() {
             "Failure: ${e.message}"
         }
     }
-    fun getNewPhotoByBreed(breed: String?) {
+    /*fun getNewPhotoByBreed(breed: String?) {
         try {
             viewModelScope.launch {
                 val dogBreedPhoto = DogPhotoApi.retrofitService.getRandomBreedPhoto(breed!!)//this line throws null pointer exception
@@ -39,6 +40,6 @@ class DogViewModel : ViewModel() {
         } catch (e: Exception) {
             "Failure: ${e.message}"
         }
-    }
+    }*/
 
 }
