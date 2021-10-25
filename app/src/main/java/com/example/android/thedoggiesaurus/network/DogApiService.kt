@@ -7,6 +7,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 // https://dog.ceo/api/breeds/image/random
 private const val BASE_URL = "https://dog.ceo/api/"
@@ -27,6 +28,9 @@ private val retrofit = Retrofit.Builder()
 interface DogApiService {
     @GET("breeds/image/random")
     suspend fun getRandomPhoto(): DogPhoto
+
+    @GET("breed/{breed}/images/random")
+    suspend fun getRandomBreedPhoto(@Path("breed") breed: String): DogPhoto
 }
 
 object DogPhotoApi{

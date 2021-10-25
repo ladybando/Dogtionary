@@ -6,37 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="184dp"
-        android:layout_marginBottom="176dp"
-        android:text="@string/submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="302dp"
-        android:layout_height="239dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="136dp"
-        android:contentDescription="@string/doggies"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="116dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:padding="4dp"
-        android:text="@string/breed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+<androidx.fragment.app.FragmentContainerView
+    android:id="@+id/dog_display_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:name="com.example.android.thedoggiesaurus.chapter.DogDisplayFragment"
+    tools:layout="@layout/fragment_dog_display"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
