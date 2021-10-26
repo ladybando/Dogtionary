@@ -1,6 +1,6 @@
 package com.example.android.thedoggiesaurus
 
-import android.os.Bundle
+ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
@@ -16,15 +16,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val textView = binding.editTextBreed.text.toString()
         viewModel.dogPhoto.observe(this, {
             val imgUri = it.messageUrl!!.toUri().buildUpon().scheme("https").build()
             binding.imageView.load(imgUri)
 
-            val status = it.statusResponse!!
-            binding.textView.text = status
         })
         binding.button.setOnClickListener {
-            viewModel.getNewPhoto()
+            if (textView.isNotEmpty()) {
+                viewModel.getPhotoByBreed(textView.lowercase())
+            } else {
+                viewModel.getNewPhoto()
+            }
         }
     }
 }
