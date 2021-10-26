@@ -27,8 +27,12 @@ class DogViewModel : ViewModel() {
     }
 
     fun getPhotoByBreed(breedType: String?) {
-        viewModelScope.launch {
-            DogPhotoApi.retrofitService.getPhotoByBreed(breedType!!)
+        try {
+            viewModelScope.launch {
+                _dogPhoto.value = DogPhotoApi.retrofitService.getPhotoByBreed(breedType!!)
+            }
+        }catch(e: Exception) {
+            "Failure: ${e.message}"
         }
     }
 }

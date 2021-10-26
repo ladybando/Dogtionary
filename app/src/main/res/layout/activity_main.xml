@@ -7,21 +7,20 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/submit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="184dp"
-        android:layout_marginBottom="176dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="224dp"
         android:text="@string/submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBreed" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="302dp"
-        android:layout_height="239dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="136dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="20dp"
         android:contentDescription="@string/doggies"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,13 +29,23 @@
         android:id="@+id/editTextBreed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="116dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="100dp"
         android:ems="10"
+        android:hint="@string/breed"
         android:inputType="textPersonName"
         android:padding="4dp"
-        android:text="@string/breed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/by_breed_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/by_breed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBreed" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
