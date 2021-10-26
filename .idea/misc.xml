@@ -3,11 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ayana/AndroidStudioProjects/TheDoggieSaurus/app/src/main/res/drawable/ic_broken_image.xml" value="0.2911458333333333" />
-        <entry key="..\:/Users/ayana/AndroidStudioProjects/TheDoggieSaurus/app/src/main/res/drawable/ic_connection_error.xml" value="0.2911458333333333" />
-        <entry key="..\:/Users/ayana/AndroidStudioProjects/TheDoggieSaurus/app/src/main/res/drawable/loading_img.xml" value="0.2911458333333333" />
         <entry key="..\:/Users/ayana/AndroidStudioProjects/TheDoggieSaurus/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/ayana/AndroidStudioProjects/TheDoggieSaurus/app/src/main/res/layout/fragment_dog_display.xml" value="0.1" />
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/TheDoggieSaurus/app/src/main/res/layout/fragment_dog_display.xml" value="0.2" />
       </map>
     </option>
   </component>

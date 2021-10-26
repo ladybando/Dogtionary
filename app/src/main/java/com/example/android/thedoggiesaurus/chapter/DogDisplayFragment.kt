@@ -16,7 +16,8 @@ class DogDisplayFragment : Fragment() {
 
     private val viewModel: DogViewModel by activityViewModels()
     private lateinit var button: Button
-    private lateinit var userInput: EditText
+    private lateinit var breedButton: Button
+    private lateinit var userInput: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,15 +28,12 @@ class DogDisplayFragment : Fragment() {
         binding.viewModel = viewModel
 
         button = binding.button
-        userInput = binding.editTextDogBreed
-        //val userInputtedBreed = userInput.text.toString()
+        userInput = binding.editTextDogBreed.text.toString()
         button.setOnClickListener {
-           /* if (userInputtedBreed.isNotEmpty()) {
-                viewModel.getNewPhotoByBreed(userInputtedBreed)
-            }else {*/
                 viewModel.getNewPhoto()
-                //null pointer exception from viewModel
-         /*   }*/
+        }
+        breedButton.setOnClickListener {
+            viewModel.getNewPhotoByBreed(userInput)
         }
         return binding.root
     }

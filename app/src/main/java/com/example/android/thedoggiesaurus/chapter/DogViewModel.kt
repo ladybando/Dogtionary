@@ -9,14 +9,11 @@ import com.example.android.thedoggiesaurus.network.DogPhotoApi
 import kotlinx.coroutines.launch
 
 class DogViewModel : ViewModel() {
+
     private val _dogPhoto = MutableLiveData<DogPhoto>()
     val dogPhoto: LiveData<DogPhoto> = _dogPhoto
 
-    private val _breed =  MutableLiveData<String>()
-    val breed: LiveData<String> = _breed
-
     init {
-       // getNewPhotoByBreed(_breed.value)
         getNewPhoto()
 
     }
@@ -30,16 +27,14 @@ class DogViewModel : ViewModel() {
             "Failure: ${e.message}"
         }
     }
-    /*fun getNewPhotoByBreed(breed: String?) {
+    fun getNewPhotoByBreed(breed: String?) {
         try {
             viewModelScope.launch {
-                val dogBreedPhoto = DogPhotoApi.retrofitService.getRandomBreedPhoto(breed!!)//this line throws null pointer exception
-                //breed is null obviously, but how to fix?
-                _breed.value = dogBreedPhoto.messageUrl!!
+                _dogPhoto.value = DogPhotoApi.retrofitService.getRandomBreedPhoto(breed!!)
             }
         } catch (e: Exception) {
             "Failure: ${e.message}"
         }
-    }*/
+    }
 
 }
