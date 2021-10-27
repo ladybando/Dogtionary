@@ -9,7 +9,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-
 private const val BASE_URL = "https://dog.ceo/api/"
 
 private val networkLoggingInterceptor =
@@ -26,16 +25,16 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface DogApiService {
-    // https://dog.ceo/api/breeds/image/random
+    //https://dog.ceo/api/breeds/image/random
     @GET("breeds/image/random")
     suspend fun getRandomPhoto(): DogPhoto
 
     //https://dog.ceo/api/breed/hound/images/random
     @GET("breed/{breed}/images/random")
-    suspend fun getPhotoByBreed(@Path("breed")breed: String): DogPhoto
+    suspend fun getPhotoByBreed(@Path("breed") breed: String): DogPhoto
 }
 
-object DogPhotoApi{
+object DogPhotoApi {
     val retrofitService: DogApiService by lazy {
         retrofit.create((DogApiService::class.java))
     }

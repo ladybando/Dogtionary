@@ -29,6 +29,7 @@ class DogViewModel : ViewModel() {
             "Failure: ${e.message}"
         }
     }
+
     fun getPhotoByBreed(breedType: String?) {
         try {
             viewModelScope.launch {
@@ -38,5 +39,4 @@ class DogViewModel : ViewModel() {
             "Failure: ${e.message}"
         }
     }
-
 }
