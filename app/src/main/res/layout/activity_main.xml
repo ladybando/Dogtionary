@@ -6,68 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/submit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="164dp"
-        android:background="@drawable/round_edge"
-        android:fontFamily="@font/merriweather_bold"
-        android:padding="4dp"
-        android:text="@string/submit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="398dp"
-        android:layout_marginTop="44dp"
-        android:contentDescription="@string/doggies"
-        android:padding="2dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBreed" />
-
-    <EditText
-        android:id="@+id/editTextBreed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="12dp"
-        android:ems="10"
-        android:fontFamily="@font/merriweather"
-        android:hint="@string/breed"
-        android:inputType="textPersonName"
-        android:padding="4dp"
-        android:textColorHint="@color/green_a700"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/by_breed_button"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ImageButton
-        android:id="@+id/by_breed_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@color/white"
-        android:text="@string/by_breed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.875"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_breed_search"
-        android:contentDescription="@string/by_breed" />
-
-    <ImageButton
-        android:id="@+id/clear_text"
-        android:layout_width="10dp"
-        android:layout_height="12dp"
-        android:layout_marginEnd="4dp"
-        android:backgroundTint="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/editTextBreed"
-        app:layout_constraintTop_toTopOf="@+id/editTextBreed"
-        app:srcCompat="@drawable/ic_clear"
-        android:contentDescription="@string/clear" />
+<androidx.fragment.app.FragmentContainerView
+    android:id="@+id/dog_display_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:name="com.example.android.thedoggiesaurus.chapter.DogDisplayFragment"
+    tools:layout="@layout/fragment_dog_display"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
