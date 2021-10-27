@@ -4,5 +4,6 @@
     <string name="doggies">Doggies!!</string>
     <string name="submit">Submit</string>
     <string name="breed">Breed</string>
-    <string name="by_breed">By Breed</string>
+    <string name="by_breed">Search By Breed</string>
+    <string name="clear">Clear text</string>
 </resources>

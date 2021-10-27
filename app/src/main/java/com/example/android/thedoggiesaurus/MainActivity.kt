@@ -2,6 +2,8 @@ package com.example.android.thedoggiesaurus
 
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
@@ -21,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         val randomPhotoButton = binding.submitButton
         val textView = binding.editTextBreed
         val byBreedButton = binding.byBreedButton
+        val clearButton = binding.clearText
+        clearButton.visibility = View.INVISIBLE
 
         viewModel.dogPhoto.observe(this, {
             val imgUri = it.messageUrl!!.toUri().buildUpon().scheme("https").build()
@@ -31,13 +35,32 @@ class MainActivity : AppCompatActivity() {
             viewModel.getNewPhoto()
         }
         byBreedButton.setOnClickListener {
-            //if (viewModel.dogPhoto.observe(this,{it.statusResponse!!}).toString() != "error") //what to check against?{
-                viewModel.getPhotoByBreed(textView.text.toString().lowercase()) //crashes if search term is not correct
-       /* } else {
-                Snackbar
-                    .make(this,textView, "Rotten doggy treats! Try another search term!", Snackbar.LENGTH_SHORT)
-                    .show()
-            }*/
+            textView.visibility = View.VISIBLE
+            clearButton.visibility = View.VISIBLE
+            byBreedButton.visibility = View.INVISIBLE
+            textView.setOnKeyListener { _, keyCode, keyEvent ->
+                if (keyCode == KeyEvent.KEYCODE_ENTER && keyEvent.action == KeyEvent.ACTION_DOWN) {
+                    viewModel.getPhotoByBreed(textView.text.toString().lowercase())
+                    return@setOnKeyListener true
+                } else {
+                    false
+                }
+            }
+
         }
+        clearButton.setOnClickListener {
+            textView.text.clear()
+            textView.visibility = View.INVISIBLE
+            clearButton.visibility = View.INVISIBLE
+            byBreedButton.visibility = View.VISIBLE
+        }
+
+        //if (viewModel.dogPhoto.observe(this,{it.statusResponse!!}).toString() != "error") //what to check against?{
+        //viewModel.getPhotoByBreed(textView.text.toString().lowercase()) //crashes if search term is not correct
+        /* } else {
+                 Snackbar
+                     .make(this,textView, "Rotten doggy treats! Try another search term!", Snackbar.LENGTH_SHORT)
+                     .show()
+             }*/
     }
 }
