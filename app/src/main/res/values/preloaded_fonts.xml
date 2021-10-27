@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/libre_franklin</item>
+        <item>@font/libre_franklin_semibold</item>
+        <item>@font/merriweather</item>
+        <item>@font/merriweather_bold</item>
+    </array>
+</resources>
