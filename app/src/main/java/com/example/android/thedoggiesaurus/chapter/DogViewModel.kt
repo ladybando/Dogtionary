@@ -15,7 +15,6 @@ class DogViewModel : ViewModel() {
 
     init {
         getNewPhoto()
-
     }
 
     fun getNewPhoto() {
@@ -27,10 +26,10 @@ class DogViewModel : ViewModel() {
             "Failure: ${e.message}"
         }
     }
-    fun getNewPhotoByBreed(breed: String?) {
+    fun getNewPhotoByBreed(breedType: String?) {
         try {
             viewModelScope.launch {
-                _dogPhoto.value = DogPhotoApi.retrofitService.getRandomBreedPhoto(breed!!)
+                _dogPhoto.value = DogPhotoApi.retrofitService.getPhotoByBreed(breedType!!)
             }
         } catch (e: Exception) {
             "Failure: ${e.message}"

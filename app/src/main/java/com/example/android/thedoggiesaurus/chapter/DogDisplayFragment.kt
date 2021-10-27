@@ -17,23 +17,25 @@ class DogDisplayFragment : Fragment() {
     private val viewModel: DogViewModel by activityViewModels()
     private lateinit var button: Button
     private lateinit var breedButton: Button
-    private lateinit var userInput: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         // Inflate the layout for this fragment
-        val binding: FragmentDogDisplayBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_dog_display, container, false)
+        val binding: FragmentDogDisplayBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_dog_display, container, false)
         binding.viewModel = viewModel
 
         button = binding.button
-        userInput = binding.editTextDogBreed.text.toString()
+        breedButton = binding.byBreedButton
+        val userInput = binding.editTextDogBreed
+
         button.setOnClickListener {
-                viewModel.getNewPhoto()
+            viewModel.getNewPhoto()
         }
         breedButton.setOnClickListener {
-            viewModel.getNewPhotoByBreed(userInput)
+            viewModel.getNewPhotoByBreed(userInput.text.toString().lowercase())
         }
         return binding.root
     }

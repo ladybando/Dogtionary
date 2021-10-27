@@ -17,10 +17,3 @@ fun bindImage(dogImgView: ImageView, mssgUrl: String?) {
     }
 }
 
-@BindingAdapter("breeds")
-fun bindBreedText(dogEditText: EditText, breed: String?) {
-    breed?.let {
-        dogEditText.setText(breed)
-    }
-}
-
