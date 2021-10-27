@@ -1,7 +1,6 @@
 package com.example.android.thedoggiesaurus.chapter
 
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +28,7 @@ class DogDisplayFragment : Fragment() {
         val binding: FragmentDogDisplayBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_dog_display, container, false)
         binding.viewModel = viewModel
+        binding.lifecycleOwner = this
 
         button = binding.submitButton
         breedButton = binding.byBreedButton
@@ -53,7 +53,7 @@ class DogDisplayFragment : Fragment() {
                         Snackbar
                             .make(this.requireContext(),
                                 textView,
-                                "Rotten doggy treats! Try another search term!",
+                                "Rotten doggy treats, try another search term!",
                                 Snackbar.LENGTH_SHORT)
                             .show()
                     }
@@ -73,6 +73,4 @@ class DogDisplayFragment : Fragment() {
         }
         return binding.root
     }
-
-
 }
