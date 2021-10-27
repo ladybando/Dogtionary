@@ -9,7 +9,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-// https://dog.ceo/api/breeds/image/random
 private const val BASE_URL = "https://dog.ceo/api/"
 
 private val networkLoggingInterceptor =
