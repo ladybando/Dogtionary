@@ -1,4 +1,4 @@
-package com.example.android.thedoggiesaurus
+package com.example.android.thedoggiesaurus.chapter
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
