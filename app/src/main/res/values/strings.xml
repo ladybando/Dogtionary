@@ -3,9 +3,10 @@
     <string name="next">Next</string>
     <string name="doggies">Doggies!!</string>
     <string name="submit">Submit</string>
-    <string name="breed">Or type breed here</string>
+    <string name="breed">Search By Breed</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="heading">Click \'Submit\' to See Different Pictures</string>
     <string name="by_breed">By Breed</string>
+    <string name="clear">Clear text</string>
 </resources>

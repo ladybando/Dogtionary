@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
 <data>
@@ -11,20 +12,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".chapter.DogDisplayFragment">
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/submit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginBottom="60dp"
             android:text="@string/submit"
             android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDogBreed" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/editTextDogBreed"
@@ -36,41 +36,47 @@
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:padding="4dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.733" />
+            app:layout_constraintVertical_bias="0.04" />
 
         <ImageView
             android:id="@+id/dogImageView"
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="132dp"
             android:contentDescription="@string/doggies"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:messageUrl="@{viewModel.dogPhoto.messageUrl}" />
 
-        <Button
+        <ImageButton
             android:id="@+id/by_breed_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="36dp"
+            android:background="@color/white"
+            android:contentDescription="@string/by_breed"
             android:text="@string/by_breed"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/button"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDogBreed" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="96dp"
-            android:text="@string/heading"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="0.813"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_breed_search" />
+
+        <ImageButton
+            android:id="@+id/clear_text"
+            android:layout_width="10dp"
+            android:layout_height="12dp"
+            android:layout_marginEnd="4dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/editTextDogBreed"
+            app:layout_constraintTop_toTopOf="@+id/editTextDogBreed"
+            app:srcCompat="@drawable/ic_clear"
+            android:visibility="invisible"
+            android:contentDescription="@string/clear" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

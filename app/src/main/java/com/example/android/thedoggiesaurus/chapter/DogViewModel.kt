@@ -13,6 +13,9 @@ class DogViewModel : ViewModel() {
     private val _dogPhoto = MutableLiveData<DogPhoto>()
     val dogPhoto: LiveData<DogPhoto> = _dogPhoto
 
+    private val _status = MutableLiveData<DogPhoto>()
+    val status:LiveData<DogPhoto> = _status
+
     init {
         getNewPhoto()
     }
@@ -26,7 +29,7 @@ class DogViewModel : ViewModel() {
             "Failure: ${e.message}"
         }
     }
-    fun getNewPhotoByBreed(breedType: String?) {
+    fun getPhotoByBreed(breedType: String?) {
         try {
             viewModelScope.launch {
                 _dogPhoto.value = DogPhotoApi.retrofitService.getPhotoByBreed(breedType!!)
