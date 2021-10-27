@@ -31,10 +31,10 @@ interface DogApiService {
 
     //https://dog.ceo/api/breed/hound/images/random
     @GET("breed/{breed}/images/random")
-    suspend fun getPhotoByBreed(@Path("breed")breed: String): DogPhoto
+    suspend fun getPhotoByBreed(@Path("breed") breed: String): DogPhoto
 }
 
-object DogPhotoApi{
+object DogPhotoApi {
     val retrofitService: DogApiService by lazy {
         retrofit.create((DogApiService::class.java))
     }
