@@ -15,7 +15,7 @@
 * Download the zip file
 
 # Demo
-![DogDemo](https://github.com/ladybando/TheDoggieSaurus/blob/main/app/demo/ScreenToGif.lnk?raw=true)
+![DogDemo](https://github.com/ladybando/TheDoggieSaurus/blob/main/app/demo/Doggies.gif)
 # Resources
 Without the resources listed below this project would not have come to fruition
 - https://dog.ceo/dog-api/documentation/random
