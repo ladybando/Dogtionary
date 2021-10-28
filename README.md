@@ -1,6 +1,6 @@
 # TheDoggieSaurus
 
-# The Basics 
+# The Basics 🐩🐩🐩
 ### An app that displays dog pictures and info because who doesn't love dogs?
 
 
