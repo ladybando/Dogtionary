@@ -11,8 +11,11 @@
 
 
 # SetUp 
-* `git clone` from the code or download the zip file
-* 
+* `git clone` from Command Line
+* Download the zip file
+
+# Demo
+![DogDemo](C:\Users\ayana\Desktop)
 # Resources
 Without the resources listed below this project would not have come to fruition
 - https://dog.ceo/dog-api/documentation/random
