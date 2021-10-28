@@ -32,7 +32,7 @@
             android:layout_height="48dp"
             android:layout_marginEnd="96dp"
             android:ems="10"
-            android:hint="@string/breed"
+            android:hint="@string/by_breed"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:padding="4dp"
