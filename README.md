@@ -10,10 +10,10 @@
 - Built with Android Studio
 
 
-# SetUp ✍🏾
+# SetUp 
 * `git clone` from the code or download the zip file
-
-# Resources ✍🏾
+* 
+# Resources
 Without the resources listed below this project would not have come to fruition
 - https://dog.ceo/dog-api/documentation/random
 - https://github.com/calren/InspirationalQuotesExercise
