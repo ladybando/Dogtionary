@@ -23,6 +23,8 @@
             android:layout_marginBottom="60dp"
             android:text="@string/submit"
             android:textSize="15sp"
+            android:background="@drawable/rounded_right"
+            app:backgroundTint="@color/green_a400"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

@@ -24,6 +24,7 @@ class DogDisplayFragment : Fragment() {
     private lateinit var button: Button
     private lateinit var breedButton: ImageButton
     private lateinit var textView: TextView
+    private lateinit var clearButton: ImageButton
 
     private var _binding: FragmentDogDisplayBinding? = null
     private val binding get() = _binding!!
@@ -41,11 +42,24 @@ class DogDisplayFragment : Fragment() {
         button = binding.submitButton
         breedButton = binding.byBreedButton
         textView = binding.editTextDogBreed
-        val clearButton = binding.clearText
+        clearButton = binding.clearText
 
+        showRandomPhoto()
+        showPhotoByBreed()
+
+        return binding.root
+    }
+
+    private fun View.hideKeyboard() {
+        val imm = context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(windowToken, 0)
+    }
+    private fun showRandomPhoto() {
         button.setOnClickListener {
             viewModel.getNewPhoto()
         }
+    }
+    private fun showPhotoByBreed() {
         breedButton.setOnClickListener {
             //shows text view and clear button for breed searches
             textView.visibility = View.VISIBLE
@@ -72,18 +86,14 @@ class DogDisplayFragment : Fragment() {
                     false
                 }
             }
+
+            //clears text view and button once no longer in use
+            clearButton.setOnClickListener {
+                binding.editTextDogBreed.text.clear()
+                textView.visibility = View.INVISIBLE
+                clearButton.visibility = View.INVISIBLE
+                breedButton.visibility = View.VISIBLE
+            }
         }
-        //clears text view and button once no longer in use
-        clearButton.setOnClickListener {
-            binding.editTextDogBreed.text.clear()
-            textView.visibility = View.INVISIBLE
-            clearButton.visibility = View.INVISIBLE
-            breedButton.visibility = View.VISIBLE
-        }
-        return binding.root
-    }
-    private fun View.hideKeyboard() {
-        val imm = context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(windowToken, 0)
     }
 }
