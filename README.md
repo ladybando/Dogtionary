@@ -15,7 +15,7 @@
 * Download the zip file
 
 # Demo
-![DogDemo](C:\Users\ayana\Desktop)
+![DogDemo](https://github.com/ladybando/TheDoggieSaurus/blob/main/app/demo/ScreenToGif.lnk?raw=true)
 # Resources
 Without the resources listed below this project would not have come to fruition
 - https://dog.ceo/dog-api/documentation/random
