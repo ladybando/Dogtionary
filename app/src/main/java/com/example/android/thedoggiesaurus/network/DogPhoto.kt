@@ -11,6 +11,6 @@ import com.squareup.moshi.Json
 }*/
 
 class DogPhoto(
-    @Json(name = "message") val messageUrl: String?,
-    @Json(name = "breed") val statusResponse: String?
+    @Json(name = "message") val imageUrl: String?,
+    @Json(name = "status") val statusResponse: String?
 )

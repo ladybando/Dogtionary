@@ -5,6 +5,7 @@ import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import coil.load
+import com.example.android.thedoggiesaurus.chapter.DogDisplayFragment
 
 @BindingAdapter("messageUrl")
 fun bindImage(dogImgView: ImageView, mssgUrl: String?) {
@@ -17,3 +18,17 @@ fun bindImage(dogImgView: ImageView, mssgUrl: String?) {
     }
 }
 
+/** JSON
+ * {
+"message": "https://images.dog.ceo/breeds/hound-ibizan/n02091244_3042.jpg",
+"status": "success"
+}*/
+
+@BindingAdapter("statusResponse")
+fun bindStatus(textView: EditText, status:String?) {
+    status.let {
+        if (status.equals("error")) {
+            textView.error = "Try a new search term"
+        }
+    }
+}

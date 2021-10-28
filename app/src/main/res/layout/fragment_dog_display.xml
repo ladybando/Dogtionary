@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-<data>
-<variable
-    name="viewModel"
-    type="com.example.android.thedoggiesaurus.chapter.DogViewModel" />
-</data>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.android.thedoggiesaurus.chapter.DogViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".chapter.DogDisplayFragment">
-
 
         <Button
             android:id="@+id/submit_button"
@@ -40,28 +40,31 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.04" />
+            app:layout_constraintVertical_bias="0.04"
+            app:statusResponse="@{viewModel.status}" />
 
         <ImageView
             android:id="@+id/dogImageView"
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:layout_marginTop="132dp"
+            android:layout_marginTop="92dp"
             android:contentDescription="@string/doggies"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:messageUrl="@{viewModel.dogPhoto.messageUrl}" />
+            app:messageUrl="@{viewModel.dogPhoto.imageUrl}" />
 
         <ImageButton
             android:id="@+id/by_breed_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:background="@color/white"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/round_edge"
             android:contentDescription="@string/by_breed"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:text="@string/by_breed"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.813"
+            app:layout_constraintHorizontal_bias="0.867"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_breed_search" />
@@ -71,12 +74,12 @@
             android:layout_width="10dp"
             android:layout_height="12dp"
             android:layout_marginEnd="4dp"
-            android:backgroundTint="@color/white"
+            android:background="@color/white"
+            android:contentDescription="@string/clear"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@+id/editTextDogBreed"
             app:layout_constraintTop_toTopOf="@+id/editTextDogBreed"
-            app:srcCompat="@drawable/ic_clear"
-            android:visibility="invisible"
-            android:contentDescription="@string/clear" />
+            app:srcCompat="@drawable/ic_clear" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
