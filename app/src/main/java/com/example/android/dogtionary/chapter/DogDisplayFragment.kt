@@ -67,7 +67,7 @@ class DogDisplayFragment : Fragment() {
                     //close keyboard after key press
                     textView.hideKeyboard()
                     //calls getPhotoByBreed() method if text view has characters && if the statusResponse is "success"
-                    if (textView.text.isNotEmpty() && viewModel.status.value != "success") {
+                    if (textView.text.isNotEmpty() && !viewModel.status.value.equals("success") ) {
                         viewModel.getPhotoByBreed(textView.text.toString().lowercase())
                     } else {
                         Snackbar
