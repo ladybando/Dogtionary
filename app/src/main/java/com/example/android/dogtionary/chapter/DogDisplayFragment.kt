@@ -14,7 +14,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.android.dogtionary.R
-import com.example.android.thedoggiesaurus.databinding.FragmentDogDisplayBinding
+import com.example.android.dogtionary.databinding.FragmentDogDisplayBinding
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -25,8 +25,7 @@ class DogDisplayFragment : Fragment() {
     private lateinit var breedButton: ImageButton
     private lateinit var textView: TextView
     private lateinit var clearButton: ImageButton
-    //initial app name was thedoggiesaurus and was refactored to dogtionary.
-    //unsure of how to fix gradle reference to old project name
+
     private var _binding: FragmentDogDisplayBinding? = null
     private val binding get() = _binding!!
 
@@ -68,7 +67,7 @@ class DogDisplayFragment : Fragment() {
                     //close keyboard after key press
                     textView.hideKeyboard()
                     //calls getPhotoByBreed() method if text view has characters && if the statusResponse is "success"
-                    if (textView.text.isNotEmpty() && viewModel.status.value != "error") {
+                    if (textView.text.isNotEmpty() && viewModel.status.value != "success") {
                         viewModel.getPhotoByBreed(textView.text.toString().lowercase())
                     } else {
                         Snackbar
