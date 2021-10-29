@@ -1,8 +1,8 @@
-package com.example.android.thedoggiesaurus
+package com.example.android.dogtionary
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.android.thedoggiesaurus.databinding.ActivityMainBinding
+import com.example.android.dogtionary.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

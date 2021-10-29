@@ -7,13 +7,13 @@
 
         <variable
             name="viewModel"
-            type="com.example.android.thedoggiesaurus.chapter.DogViewModel" />
+            type="com.example.android.dogtionary.chapter.DogViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".chapter.DogDisplayFragment">
+        tools:context="com.example.android.dogtionary.chapter.DogDisplayFragment">
 
         <Button
             android:id="@+id/submit_button"

@@ -1,4 +1,4 @@
-package com.example.android.thedoggiesaurus.chapter
+package com.example.android.dogtionary.chapter
 
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
@@ -13,7 +13,7 @@ import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.android.thedoggiesaurus.R
+import com.example.android.dogtionary.R
 import com.example.android.thedoggiesaurus.databinding.FragmentDogDisplayBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -25,7 +25,8 @@ class DogDisplayFragment : Fragment() {
     private lateinit var breedButton: ImageButton
     private lateinit var textView: TextView
     private lateinit var clearButton: ImageButton
-
+    //initial app name was thedoggiesaurus and was refactored to dogtionary.
+    //unsure of how to fix gradle reference to old project name
     private var _binding: FragmentDogDisplayBinding? = null
     private val binding get() = _binding!!
 
@@ -50,10 +51,6 @@ class DogDisplayFragment : Fragment() {
         return binding.root
     }
 
-    private fun View.hideKeyboard() {
-        val imm = context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(windowToken, 0)
-    }
     private fun showRandomPhoto() {
         button.setOnClickListener {
             viewModel.getNewPhoto()
@@ -70,7 +67,7 @@ class DogDisplayFragment : Fragment() {
                 if (keyCode == KeyEvent.KEYCODE_ENTER && keyEvent.action == KeyEvent.ACTION_DOWN) {
                     //close keyboard after key press
                     textView.hideKeyboard()
-                    //calls method if text view has characters and if the statusResponse is success
+                    //calls getPhotoByBreed() method if text view has characters && if the statusResponse is "success"
                     if (textView.text.isNotEmpty() && viewModel.status.value != "error") {
                         viewModel.getPhotoByBreed(textView.text.toString().lowercase())
                     } else {
@@ -86,7 +83,6 @@ class DogDisplayFragment : Fragment() {
                     false
                 }
             }
-
             //clears text view and button once no longer in use
             clearButton.setOnClickListener {
                 binding.editTextDogBreed.text.clear()
@@ -95,5 +91,9 @@ class DogDisplayFragment : Fragment() {
                 breedButton.visibility = View.VISIBLE
             }
         }
+    }
+    private fun View.hideKeyboard() {
+        val imm = context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(windowToken, 0)
     }
 }

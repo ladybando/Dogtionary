@@ -1,4 +1,4 @@
-package com.example.android.thedoggiesaurus
+package com.example.android.dogtionary
 
 import org.junit.Test
 

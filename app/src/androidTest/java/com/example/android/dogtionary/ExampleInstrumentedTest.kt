@@ -1,4 +1,4 @@
-package com.example.android.thedoggiesaurus
+package com.example.android.dogtionary
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

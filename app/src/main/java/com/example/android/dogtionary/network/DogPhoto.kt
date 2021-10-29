@@ -1,4 +1,4 @@
-package com.example.android.thedoggiesaurus.network
+package com.example.android.dogtionary.network
 
 import com.squareup.moshi.Json
 

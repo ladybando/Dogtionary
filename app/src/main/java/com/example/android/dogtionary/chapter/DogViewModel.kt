@@ -1,11 +1,11 @@
-package com.example.android.thedoggiesaurus.chapter
+package com.example.android.dogtionary.chapter
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.android.thedoggiesaurus.network.DogPhoto
-import com.example.android.thedoggiesaurus.network.DogPhotoApi
+import com.example.android.dogtionary.network.DogPhoto
+import com.example.android.dogtionary.network.DogPhotoApi
 import kotlinx.coroutines.launch
 
 class DogViewModel : ViewModel() {
