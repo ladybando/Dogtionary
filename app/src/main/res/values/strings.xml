@@ -6,4 +6,6 @@
     <string name="breed">Breed</string>
     <string name="by_breed">Search By Breed</string>
     <string name="clear">Clear text</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

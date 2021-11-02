@@ -14,62 +14,50 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.android.dogtionary.R
+import com.example.android.dogtionary.adapter.DogPhotoGridAdapter
 import com.example.android.dogtionary.databinding.FragmentDogDisplayBinding
 import com.google.android.material.snackbar.Snackbar
 
-
-class DogDisplayFragment : Fragment() {
+class DogsDisplayFragment : Fragment(), DogPhotoGridAdapter.Listener {
 
     private val viewModel: DogViewModel by activityViewModels()
-    private lateinit var button: Button
-    private lateinit var breedButton: ImageButton
-    private lateinit var textView: TextView
-    private lateinit var clearButton: ImageButton
 
     private var _binding: FragmentDogDisplayBinding? = null
     private val binding get() = _binding!!
 
+    /*
+    *  TODO: decide what dog information to display
+    *  TODO: decide how it will be stored -string resource, data class, etc
+    *  TODO: decide how it will be displayed: how will it link to picture?
+    *    using breed string? what if string is not the right string? should it be checked against an array of prepopulated strings?
+    * TODO display data in second fragment that is an imageview and textviews https://material.io/components/cards/android#card */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         // Inflate the layout for this fragment
-        _binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_dog_display, container, false)
+        _binding = FragmentDogDisplayBinding.inflate(inflater)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+        binding.photosGrid.adapter = DogPhotoGridAdapter(this)
 
-        button = binding.submitButton
-        breedButton = binding.byBreedButton
-        textView = binding.editTextDogBreed
-        clearButton = binding.clearText
-
-        showRandomPhoto()
         showPhotoByBreed()
 
         return binding.root
     }
-
-    private fun showRandomPhoto() {
-        button.setOnClickListener {
-            viewModel.getNewPhoto()
-        }
-    }
+//not showing pictures atm
     private fun showPhotoByBreed() {
-        breedButton.setOnClickListener {
+        binding.photosGrid.setOnClickListener {
             //shows text view and clear button for breed searches
-            textView.visibility = View.VISIBLE
-            clearButton.visibility = View.VISIBLE
-            breedButton.visibility = View.INVISIBLE
             //allows enter key to initiate search by calling getPhotoByBreed() method
-            textView.setOnKeyListener { _, keyCode, keyEvent ->
+/*            textView.setOnKeyListener { _, keyCode, keyEvent ->
                 if (keyCode == KeyEvent.KEYCODE_ENTER && keyEvent.action == KeyEvent.ACTION_DOWN) {
                     //close keyboard after key press
                     textView.hideKeyboard()
                     //calls getPhotoByBreed() method if text view has characters && if the statusResponse is "success"
-                    if (textView.text.isNotEmpty() && !viewModel.status.value.equals("success") ) {
-                        viewModel.getPhotoByBreed(textView.text.toString().lowercase())
-                    } else {
+                    if (textView.text.isNotEmpty() && !viewModel.status.value.equals("success") ) {*/
+                        //viewModel.getPhotoByBreed(textView.text.toString().lowercase())
+                  /*  } else {
                         Snackbar
                             .make(this.requireContext(),
                                 textView,
@@ -80,19 +68,17 @@ class DogDisplayFragment : Fragment() {
                     return@setOnKeyListener true
                 } else {
                     false
-                }
-            }
-            //clears text view and button once no longer in use
-            clearButton.setOnClickListener {
-                binding.editTextDogBreed.text.clear()
-                textView.visibility = View.INVISIBLE
-                clearButton.visibility = View.INVISIBLE
-                breedButton.visibility = View.VISIBLE
+                }*/
             }
         }
-    }
+
     private fun View.hideKeyboard() {
         val imm = context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(windowToken, 0)
     }
+
+    override fun onTaskClicked(index: Int) {
+        viewModel.getPhotoByBreed("hound")
+    }
+
 }
