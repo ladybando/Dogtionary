@@ -2,6 +2,7 @@ package com.example.android.dogtionary
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
 import com.example.android.dogtionary.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

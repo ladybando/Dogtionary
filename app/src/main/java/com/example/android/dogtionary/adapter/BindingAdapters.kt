@@ -1,16 +1,16 @@
 package com.example.android.dogtionary.adapter
 
-import android.view.LayoutInflater
+
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.core.net.toUri
+import androidx.core.text.isDigitsOnly
 import androidx.databinding.BindingAdapter
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.android.dogtionary.R
-import com.example.android.dogtionary.databinding.ViewItemBinding
 import com.example.android.dogtionary.network.DogPhoto
+
 
 /**
  * Uses the Coil library to load an image by URL into an [ImageView]
@@ -25,16 +25,12 @@ fun bindImage(dogImgView: ImageView, mssgUrl: String?) {
         }
     }
 }
-
-/**
- * Updates the data shown in the [RecyclerView].
- */
-//TODO fix binding so adapter displays data. what can replace submit list?
-@BindingAdapter("listData")
-fun bindRecyclerView(recyclerView: RecyclerView, data: MutableLiveData<DogPhoto>?){
-    val adapter = recyclerView.adapter as DogPhotoGridAdapter
-    adapter.notifyDataSetChanged()
+@BindingAdapter("dogList")
+fun bindImageList(recyclerView: RecyclerView, listData: List<DogPhoto>?){
+    val adapter = recyclerView.adapter as PhotoGridAdapter
+    adapter.submitList(listData)
 }
+
 /** JSON
  * {
 "message": "https://images.dog.ceo/breeds/hound-ibizan/n02091244_3042.jpg",
@@ -43,7 +39,7 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: MutableLiveData<DogPhoto>
 @BindingAdapter("statusResponse")
 fun bindStatus(textView: EditText, status:String?) {
     status.let {
-        if (textView.text.toString() == "") {
+        if (textView.text.toString().isDigitsOnly() || textView.text.toString().isBlank()) {
             textView.error = "Enter search term"
         }
     }

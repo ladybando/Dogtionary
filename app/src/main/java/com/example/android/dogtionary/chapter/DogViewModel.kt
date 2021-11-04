@@ -10,11 +10,13 @@ import kotlinx.coroutines.launch
 
 class DogViewModel : ViewModel() {
 
-    private val _dogPhoto = MutableLiveData<DogPhoto>()
-    val dogPhoto: LiveData<DogPhoto> = _dogPhoto
+    private val _dogBreedPhoto = MutableLiveData<DogPhoto>()
+    val dogBreedPhoto: LiveData<DogPhoto> = _dogBreedPhoto
 
-    private val _status = MutableLiveData<String>()
-    val status:LiveData<String> = _status
+    private val _dogPhoto = MutableLiveData<List<DogPhoto>>()
+    val dogPhoto: LiveData<List<DogPhoto>> = _dogPhoto
+
+    private val status = MutableLiveData<String>()
 
     init {
         getNewPhoto()
@@ -34,8 +36,8 @@ class DogViewModel : ViewModel() {
         try {
             viewModelScope.launch {
                 val response = DogPhotoApi.retrofitService.getPhotoByBreed(breedType!!)
-                _dogPhoto.value = response
-                _status.value = response.statusResponse!!
+                _dogBreedPhoto.value = response
+                status.value = response.statusResponse!!
             }
         } catch (e: Exception) {
             "Failure: ${e.message}"
