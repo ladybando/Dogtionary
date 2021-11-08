@@ -7,7 +7,7 @@
 
         <variable
             name="photo"
-            type="com.example.android.dogtionary.network.DogPhoto"/>
+            type="com.example.android.dogtionary.chapter.DogViewModel"/>
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -24,7 +24,7 @@
             android:padding="2dp"
             android:clickable="true"
             android:focusable="true"
-            app:messageUrl="@{photo.imageUrl.toString()}"
+            app:messageUrl="@{photo.dogPhoto.toString()}"
             tools:src="@tools:sample/backgrounds/scenic"/>
     </com.google.android.material.card.MaterialCardView>
 </layout>

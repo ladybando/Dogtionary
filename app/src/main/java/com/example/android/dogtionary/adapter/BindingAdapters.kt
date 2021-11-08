@@ -16,9 +16,9 @@ import com.example.android.dogtionary.network.DogPhoto
  * Uses the Coil library to load an image by URL into an [ImageView]
  */
 @BindingAdapter("messageUrl")
-fun bindImage(dogImgView: ImageView, mssgUrl: String?) {
-    mssgUrl?.let {
-        val imgUri = mssgUrl.toUri().buildUpon().scheme("https").build()
+fun bindImage(dogImgView: ImageView, imageUrl: String?) {
+    imageUrl?.let {
+        val imgUri = imageUrl.toUri().buildUpon().scheme("https").build()
         dogImgView.load(imgUri){
             placeholder(R.drawable.loading_animation)
             error(R.drawable.ic_broken_image)
@@ -26,10 +26,11 @@ fun bindImage(dogImgView: ImageView, mssgUrl: String?) {
     }
 }
 @BindingAdapter("dogList")
-fun bindImageList(recyclerView: RecyclerView, listData: List<DogPhoto>?){
+fun bindImageList(recyclerView: RecyclerView, listData: DogPhoto?){
     val adapter = recyclerView.adapter as PhotoGridAdapter
-    adapter.submitList(listData)
+    adapter.submitList(mutableListOf(listData))
 }
+
 
 /** JSON
  * {

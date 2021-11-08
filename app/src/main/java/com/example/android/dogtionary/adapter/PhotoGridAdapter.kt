@@ -1,10 +1,14 @@
 package com.example.android.dogtionary.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.android.dogtionary.R
 import com.example.android.dogtionary.databinding.DogViewLayoutBinding
 import com.example.android.dogtionary.network.DogPhoto
 
@@ -14,15 +18,16 @@ class PhotoGridAdapter(private val listener: Listener) :
      * The DogViewHolder constructor takes the binding variable from the associated
      * GridViewItem, which nicely gives it access to the full [DogPhoto] information.
      */
-    inner class DogViewHolder(private var binding: DogViewLayoutBinding) :
+   inner class DogViewHolder(private var binding: DogViewLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(DogPhoto: DogPhoto){
+/*        fun bind(DogPhoto: DogPhoto){
             binding.photo = DogPhoto
             binding.executePendingBindings()
-        }
+        }*/
 
-        private val dogPhotoImageView = binding.dogImageView
+        val dogPhotoImageView = binding.dogImageView
+
         init {
             dogPhotoImageView.setOnClickListener{
                 listener.onImageClicked(absoluteAdapterPosition)
@@ -40,8 +45,13 @@ class PhotoGridAdapter(private val listener: Listener) :
      * Replaces the contents of a view (invoked by the layout manager)
      */
     override fun onBindViewHolder(holder: DogViewHolder, position: Int) {
-        val dogPhoto = getItem(position)
-        holder.bind(dogPhoto)
+        val dataset= mutableListOf<String>()
+        val item = dataset[position]
+        val stringUri = item.toUri()
+         holder.dogPhotoImageView.setImageURI(stringUri)
+        //val dogPhoto = getItem(position)
+        //Log.d("Adapter", dogPhoto.toString())
+        //holder.bind(dogPhoto)
     }
     /**
      * Sets onClickListener for [DogsDisplayFragment]

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.android.dogtionary.adapter.PhotoGridAdapter
+import com.example.android.dogtionary.databinding.DogViewLayoutBinding
 import com.example.android.dogtionary.databinding.FragmentDogsDisplayBinding
 
 class DogsDisplayFragment : Fragment(), PhotoGridAdapter.Listener {
@@ -28,12 +29,12 @@ class DogsDisplayFragment : Fragment(), PhotoGridAdapter.Listener {
         savedInstanceState: Bundle?,
     ): View {
         // Inflate the layout for this fragment
-        _binding = FragmentDogsDisplayBinding.inflate(layoutInflater)
-
-        binding.photosGrid.adapter = PhotoGridAdapter(this)
+        //_binding = FragmentDogsDisplayBinding.inflate(layoutInflater)
+        val binding = DogViewLayoutBinding.inflate(inflater)
+/*        binding.photosGrid.adapter = PhotoGridAdapter(this)
 
         binding.lifecycleOwner = this
-        binding.viewModel = viewModel
+        binding.viewModel = viewModel*/
 
        showRandomPhoto()
 

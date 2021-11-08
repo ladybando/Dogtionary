@@ -17,10 +17,12 @@ import com.squareup.moshi.Json
         "https://images.dog.ceo/breeds/hound-afghan/n02088094_1023.jpg",
         "https://images.dog.ceo/breeds/hound-afghan/n02088094_10263.jpg",
         "https://images.dog.ceo/breeds/hound-afghan/n02088094_10715.jpg",
-  * }
-        * ]*/
+  *
+        * ],
+  * "status": "success"
+        * }*/
 
-class DogPhoto(
-    @Json(name = "message") val imageUrl: List<DogPhotoMessage>,
+data class DogPhoto(
+    @Json(name = "message")val imageUrl: List<String>?,
     @Json(name = "status") val statusResponse: String?
 )

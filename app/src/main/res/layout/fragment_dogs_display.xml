@@ -20,7 +20,6 @@
             android:layout_height="0dp"
             android:clipToPadding="false"
             android:padding="6dp"
-            app:dogList="@{viewModel.dogPhoto}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -28,6 +27,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
+            app:dogList="@{viewModel.dogPhoto}"
             app:spanCount="3"
             tools:itemCount="15"
             tools:listitem="@layout/dog_view_layout" />

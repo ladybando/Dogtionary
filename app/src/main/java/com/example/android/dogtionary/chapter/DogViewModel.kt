@@ -13,8 +13,8 @@ class DogViewModel : ViewModel() {
     private val _dogBreedPhoto = MutableLiveData<DogPhoto>()
     val dogBreedPhoto: LiveData<DogPhoto> = _dogBreedPhoto
 
-    private val _dogPhoto = MutableLiveData<List<DogPhoto>>()
-    val dogPhoto: LiveData<List<DogPhoto>> = _dogPhoto
+    private val _dogPhoto = MutableLiveData<DogPhoto>()
+    val dogPhoto: LiveData<DogPhoto> = _dogPhoto
 
     private val status = MutableLiveData<String>()
 
