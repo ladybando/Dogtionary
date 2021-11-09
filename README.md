@@ -17,7 +17,8 @@
 # Demo
 ![DogDemo](https://github.com/ladybando/TheDoggieSaurus/blob/main/app/demo/Doggies.gif)
 # Resources
-Without the resources listed below this project would not have come to fruition
-- https://dog.ceo/dog-api/documentation/random
-- https://github.com/calren/InspirationalQuotesExercise
-- https://developer.android.com/codelabs/basic-android-kotlin-training-internet-images#2
+
+- [Dog CEO API](https://dog.ceo/dog-api/documentation/random)
+- [Caren's GitHub Repo: Quotes Exercise](https://github.com/calren/InspirationalQuotesExercise)
+- [Google Kotlin CodeLab](https://developer.android.com/codelabs/basic-android-kotlin-training-internet-images#2)
+- [Ryan Michael Kay YouTube Channel](https://www.youtube.com/watch?v=j_2jt94CShU)
