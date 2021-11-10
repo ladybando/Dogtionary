@@ -22,3 +22,4 @@
 - [Caren's GitHub Repo: Quotes Exercise](https://github.com/calren/InspirationalQuotesExercise)
 - [Google Kotlin CodeLab](https://developer.android.com/codelabs/basic-android-kotlin-training-internet-images#2)
 - [Ryan Michael Kay YouTube Channel](https://www.youtube.com/watch?v=j_2jt94CShU)
+- [CodingWithMitch YoutTube Channel](https://www.youtube.com/watch?v=Jo6Mtq7zkkg)
