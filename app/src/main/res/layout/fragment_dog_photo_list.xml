@@ -12,7 +12,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:clipToPadding="false"
-        android:padding="6dp"
+        android:padding="2dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,6 +22,5 @@
         app:layout_constraintVertical_bias="0.0"
         app:spanCount="3"
         tools:context=".chapter.DogPhotoListFragment"
-        tools:itemCount="15"
         tools:listitem="@layout/fragment_dog_photo_layout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

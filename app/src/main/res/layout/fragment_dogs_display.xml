@@ -1,80 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".chapter.DogsDisplayFragment">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.example.android.dogtionary.chapter.DogDisplayFragment">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/submit_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="140dp"
-            android:layout_marginBottom="60dp"
-            android:background="@drawable/rounded_right"
-            android:text="@string/submit"
-            android:textSize="15sp"
-            app:backgroundTint="@color/green_a400"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/editTextDogBreed"
-            android:layout_width="217dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="96dp"
-            android:ems="10"
-            android:hint="@string/by_breed"
-            android:importantForAutofill="no"
-            android:inputType="textPersonName"
-            android:padding="4dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.04"/>
-
+        <!-- Media -->
         <ImageView
-            android:id="@+id/dogImageView"
+            android:id="@+id/dog_image_view"
+            tools:src="@tools:sample/avatars"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_marginTop="92dp"
+            android:layout_height="194dp"
             android:contentDescription="@string/doggies"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:scaleType="centerCrop" />
 
-        <ImageButton
-            android:id="@+id/by_breed_button"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Title, secondary and supporting text -->
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/doggies"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <TextView
+                android:id="@+id/secondary_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/doggies"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary" />
+
+            <TextView
+                android:id="@+id/supporting_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/doggies"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary" />
+
+        </LinearLayout>
+
+        <!-- Buttons -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/round_edge"
-            android:contentDescription="@string/by_breed"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:text="@string/by_breed"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.867"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_breed_search" />
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/clear_text"
-            android:layout_width="10dp"
-            android:layout_height="12dp"
-            android:layout_marginEnd="4dp"
-            android:background="@color/white"
-            android:contentDescription="@string/clear"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="@+id/editTextDogBreed"
-            app:layout_constraintTop_toTopOf="@+id/editTextDogBreed"
-            app:srcCompat="@drawable/ic_clear" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/next_button"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/next" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submit_button"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/submit" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

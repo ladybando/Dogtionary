@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_dogPhotoListFragment_to_dogsDisplayFragment"
             app:destination="@id/dogsDisplayFragment" />
+        <argument
+            android:name="passedToDogPhoto"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/dogsDisplayFragment"
@@ -22,5 +25,8 @@
         <action
             android:id="@+id/action_dogsDisplayFragment_to_dogPhotoListFragment"
             app:destination="@id/dogPhotoListFragment" />
+        <argument
+            android:name="passedBackDogPhoto"
+            app:argType="string" />
     </fragment>
 </navigation>
