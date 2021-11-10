@@ -6,11 +6,12 @@
     android:layout_height="match_parent"
     tools:context="com.example.android.dogtionary.MainActivity">
 
-<androidx.fragment.app.FragmentContainerView
-    android:id="@+id/dog_display_container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:name="com.example.android.dogtionary.chapter.DogsDisplayFragment"
-    tools:layout="@layout/fragment_dogs_display"/>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/dog_display_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

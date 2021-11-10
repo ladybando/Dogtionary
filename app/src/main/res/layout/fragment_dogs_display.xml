@@ -1,35 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <variable
-            name="viewModel"
-            type="com.example.android.dogtionary.chapter.DogViewModel" />
-    </data>
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".chapter.DogsDisplayFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.android.dogtionary.chapter.DogsDisplayFragment">
+        tools:context="com.example.android.dogtionary.chapter.DogDisplayFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/photos_grid"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:clipToPadding="false"
-            android:padding="6dp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="140dp"
+            android:layout_marginBottom="60dp"
+            android:background="@drawable/rounded_right"
+            android:text="@string/submit"
+            android:textSize="15sp"
+            app:backgroundTint="@color/green_a400"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextDogBreed"
+            android:layout_width="217dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="96dp"
+            android:ems="10"
+            android:hint="@string/by_breed"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:padding="4dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:dogList="@{viewModel.dogPhoto}"
-            app:spanCount="3"
-            tools:itemCount="15"
-            tools:listitem="@layout/dog_view_layout" />
+            app:layout_constraintVertical_bias="0.04"/>
+
+        <ImageView
+            android:id="@+id/dogImageView"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="92dp"
+            android:contentDescription="@string/doggies"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/by_breed_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/round_edge"
+            android:contentDescription="@string/by_breed"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:text="@string/by_breed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.867"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_breed_search" />
+
+        <ImageButton
+            android:id="@+id/clear_text"
+            android:layout_width="10dp"
+            android:layout_height="12dp"
+            android:layout_marginEnd="4dp"
+            android:background="@color/white"
+            android:contentDescription="@string/clear"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/editTextDogBreed"
+            app:layout_constraintTop_toTopOf="@+id/editTextDogBreed"
+            app:srcCompat="@drawable/ic_clear" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</FrameLayout>

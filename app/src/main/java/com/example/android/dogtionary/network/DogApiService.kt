@@ -26,7 +26,7 @@ private val retrofit = Retrofit.Builder()
 
 interface DogApiService {
     //https://dog.ceo/api/breeds/image/random
-    @GET("breeds/image/random/24")
+    @GET("breeds/image/random/48")
     suspend fun getRandomPhoto(): DogPhoto
 
     //https://dog.ceo/api/breed/hound/images/random
