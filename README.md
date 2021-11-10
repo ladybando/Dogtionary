@@ -24,3 +24,4 @@
 - [Ryan Michael Kay YouTube Channel](https://www.youtube.com/watch?v=j_2jt94CShU)
 - [CodingWithMitch YoutTube Channel](https://www.youtube.com/watch?v=Jo6Mtq7zkkg)
 - [Material Design CardView](https://material.io/components/cards)
+- [Coding In Flow YouTube Channel](https://www.youtube.com/watch?v=wKFJsrdiGS8)
