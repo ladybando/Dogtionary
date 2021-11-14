@@ -32,7 +32,7 @@ class DogPhotoListAdapter(private val listener: Listener, private val photoList:
 
         val dogImageView: ImageView = binding.dogImageView
         fun bind(dogPhoto: String) {
-            dogImageView.load(dogPhoto.toUri().buildUpon().scheme("https").build())
+            dogImageView.load(dogPhoto)
         }
 
         init {

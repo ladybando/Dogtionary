@@ -5,7 +5,7 @@
     android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:id="@+id/dog_image_view"
             tools:src="@tools:sample/avatars"
             android:layout_width="match_parent"
-            android:layout_height="194dp"
+            android:layout_height="400dp"
             android:contentDescription="@string/doggies"
             android:scaleType="centerCrop" />
 
@@ -68,14 +68,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="@string/next" />
+                android:fontFamily="@font/libre_franklin"
+                android:text="@string/next"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#009688"
+                android:typeface="normal" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/submit_button"
                 style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/submit" />
+                android:fontFamily="@font/libre_franklin"
+                android:text="@string/submit"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#009688"
+                android:typeface="normal" />
         </LinearLayout>
 
     </LinearLayout>

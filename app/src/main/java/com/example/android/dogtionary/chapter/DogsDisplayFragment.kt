@@ -10,10 +10,18 @@ import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
+import coil.load
 import com.example.android.dogtionary.databinding.FragmentDogsDisplayBinding
 import com.example.android.dogtionary.model.DogViewModel
 
 class DogsDisplayFragment : Fragment() {
+    /*
+    *  TODO: decide what dog information to display
+    *  TODO: decide how it will be stored -string resource, data class, etc. most likely database
+    *  TODO: decide how it will be linked to picture?
+    *    using breed string? what if string is not the right string? should it be checked against an array of pre-populated strings?
+    * set blur and rounded corners to images https://coil-kt.github.io/coil/transformations/
+    */
 
     private val viewModel: DogViewModel by activityViewModels()
     private var _binding: FragmentDogsDisplayBinding? = null
@@ -33,9 +41,8 @@ class DogsDisplayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         dogImageView = binding.dogImageView
-        val passedPhoto = args.passedBackDogPhoto.toUri()
-        Log.d("DisplayFragment", "$passedPhoto")
-        dogImageView.setImageURI(passedPhoto)
+        val passedPhoto = args.passedBackDogPhoto
+        dogImageView.load(passedPhoto)
     }
     /* private fun showRandomPhoto() {
          *//*Observes dogPhoto from View Model and uses the Coil library

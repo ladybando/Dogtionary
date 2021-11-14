@@ -33,8 +33,8 @@ class DogPhotoListFragment : Fragment(), DogPhotoListAdapter.Listener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.dogPhoto.observe(viewLifecycleOwner, {
-            val dogPhotoList = it.imageUrl
+        viewModel.dogPhoto.observe(viewLifecycleOwner, { dogPhoto ->
+            val dogPhotoList = dogPhoto.imageUrl
             adapter = DogPhotoListAdapter(this, dogPhotoList!!)
             binding.photosGrid.adapter = adapter
         })
@@ -45,9 +45,8 @@ class DogPhotoListFragment : Fragment(), DogPhotoListAdapter.Listener {
         viewModel.dogPhoto.observe(this.requireActivity(), {
             val dogPhoto = it.imageUrl!![index]
             Log.d("Fragment", dogPhoto)
-            val action =
-                DogPhotoListFragmentDirections.actionDogPhotoListFragmentToDogsDisplayFragment(
-                    dogPhoto)
+            val action = DogPhotoListFragmentDirections
+                .actionDogPhotoListFragmentToDogsDisplayFragment(dogPhoto)
             adapter.notifyItemChanged(index)
             findNavController().navigate(action)
         })

@@ -13,6 +13,7 @@
             android:clickable="true"
             android:focusable="true"
             android:checkable="true"
+            android:padding="2dp"
             tools:context="com.example.android.dogtionary.chapter.DogsDisplayFragment">
 
             <ImageView
@@ -24,6 +25,7 @@
                 android:focusable="true"
                 android:padding="2dp"
                 android:scaleType="fitXY"
+                android:layout_gravity="center"
                 app:messageUrl="@{photo.imageUrl}"
                 tools:src="@tools:sample/backgrounds/scenic" />
         </com.google.android.material.card.MaterialCardView>
