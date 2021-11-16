@@ -4,7 +4,6 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.core.net.toUri
 import coil.load
 import com.example.android.dogtionary.databinding.FragmentDogPhotoLayoutBinding
 

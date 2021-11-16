@@ -6,4 +6,6 @@
     <string name="breed">Breed</string>
     <string name="by_breed">Search By Breed</string>
     <string name="clear">Clear text</string>
+    <string name="favorite">favorite</string>
+    <string name="settings">Settings</string>
 </resources>

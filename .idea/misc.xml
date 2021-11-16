@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/Dogtionary/app/src/main/res/drawable/ic_breed_search.xml" value="0.1" />
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/Dogtionary/app/src/main/res/drawable/ic_favorite.xml" value="0.12864583333333332" />
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/Dogtionary/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/ayana/AndroidStudioProjects/Dogtionary/app/src/main/res/layout/dog_view_layout.xml" value="0.275" />
         <entry key="..\:/Users/ayana/AndroidStudioProjects/Dogtionary/app/src/main/res/layout/fragment_dog_display.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/ayana/AndroidStudioProjects/Dogtionary/app/src/main/res/layout/fragment_dog_info_and_display.xml" value="0.275" />
@@ -10,6 +13,9 @@
         <entry key="..\:/Users/ayana/AndroidStudioProjects/Dogtionary/app/src/main/res/layout/fragment_dog_photo_list.xml" value="0.20471014492753623" />
         <entry key="..\:/Users/ayana/AndroidStudioProjects/Dogtionary/app/src/main/res/layout/fragment_dogs_display.xml" value="0.268" />
         <entry key="..\:/Users/ayana/AndroidStudioProjects/Dogtionary/app/src/main/res/layout/view_item.xml" value="0.1359375" />
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/Dogtionary/app/src/main/res/menu/oprions_menu.xml" value="0.1" />
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/Dogtionary/app/src/main/res/menu/options_menu.xml" value="0.1" />
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/Dogtionary/app/src/main/res/xml/searchable.xml" value="0.10520833333333333" />
       </map>
     </option>
   </component>

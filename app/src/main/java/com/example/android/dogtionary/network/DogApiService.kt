@@ -30,7 +30,7 @@ interface DogApiService {
     suspend fun getRandomPhoto(): DogPhoto
 
     //https://dog.ceo/api/breed/hound/images/random
-    @GET("breed/{breed}/images/random")
+    @GET("breed/{breed}/images/random/48")
     suspend fun getPhotoByBreed(@Path("breed") breed: String): DogPhoto
 
 }
