@@ -2,13 +2,16 @@ package com.example.android.dogtionary
 
 import android.app.SearchManager
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.ImageView
 import android.widget.SearchView
+import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -49,6 +52,21 @@ class MainActivity : AppCompatActivity() {
             setSearchableInfo(searchManager.getSearchableInfo(componentName))
         }
 
+        //change search icon color
+        val searchImgId = resources.getIdentifier("android:id/search_button", null, null)
+        val searchIcon = searchView.findViewById<ImageView>(searchImgId)
+        searchIcon.setImageResource(R.drawable.ic_breed_search)
+
+        //change close button color
+        val closeImgId = resources.getIdentifier("android:id/search_close_btn", null, null)
+        val closeIcon = searchView.findViewById<ImageView>(closeImgId)
+        closeIcon.setImageResource(R.drawable.ic_clear)
+
+        //change EditText text color
+        val searchTextId = searchView.context.resources.getIdentifier("android:id/search_src_text", null, null)
+        val textView = searchView.findViewById<TextView>(searchTextId)
+        textView.setTextColor(Color.BLACK)
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(userQuery: String?): Boolean {
                 //Called when this view wants to give up focus
@@ -56,12 +74,12 @@ class MainActivity : AppCompatActivity() {
                 //Returns the query string currently in the text field. checks if string is empty?
                 searchView.setQuery("", false)
                 search.collapseActionView()
-                if (userQuery.isNullOrBlank() || viewModel.status.value.equals("error")) {
+                if (viewModel.status.value.equals("success")) {
                     viewModel.getPhotoByBreed(userQuery)
                 } else {
                     Snackbar
-                        .make(applicationContext,
-                            binding.dogDisplayContainer,//needs to be SearchView textView
+                        .make(this@MainActivity,
+                            binding.cl,//needs to be SearchView textView
                             "Rotten doggy treats, try another search term!",
                             Snackbar.LENGTH_SHORT)
                         .show()

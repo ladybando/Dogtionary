@@ -14,5 +14,6 @@
         android:title="@string/favorite"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_favorite"/>
-    <item android:title="@string/settings" />
+    <item android:title="@string/settings"
+        android:icon="@drawable/ic_menu_icon"/>
 </menu>

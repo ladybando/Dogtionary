@@ -12,4 +12,5 @@
     <color name="gray_50">#F3F4F3</color>
     <color name="gray_800">#838881</color>
     <color name="green_a700">#AAFF77</color>
+    <color name="ActionBarTitleColor">#F3F4F3</color>
 </resources>
