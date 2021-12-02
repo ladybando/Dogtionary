@@ -15,10 +15,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.android.dogtionary.data.Dog
 import com.example.android.dogtionary.databinding.ActivityMainBinding
 import com.example.android.dogtionary.model.DogViewModel
 import com.google.android.material.snackbar.Snackbar
 
+//todo add database functionality for favorites only
+//maybe set a refresh button that loads all new images
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
@@ -96,6 +99,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.favorite -> {
+            //when user clicks favorites open favorites list
+            /*how to pass data from activity to fragmen with safe args. maybe have to use bundle*/
+            navController.navigate(R.id.action_dogPhotoListFragment_to_previousImageFragment)
             Log.i("MainActivity", "Favorites clicked!")
             true
         }

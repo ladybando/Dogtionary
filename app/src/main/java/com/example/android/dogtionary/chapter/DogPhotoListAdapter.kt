@@ -1,10 +1,13 @@
 package com.example.android.dogtionary.chapter
 
+import android.media.Image
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import coil.load
+import com.example.android.dogtionary.R
 import com.example.android.dogtionary.databinding.FragmentDogPhotoLayoutBinding
 
 /**
@@ -29,7 +32,8 @@ class DogPhotoListAdapter(private val listener: Listener, private val photoList:
     inner class ViewHolder(private var binding: FragmentDogPhotoLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        val dogImageView: ImageView = binding.dogImageView
+        private val favorites: ImageButton = binding.addToFavIcon
+        private val dogImageView: ImageView = binding.dogImageView
         fun bind(dogPhoto: String) {
             dogImageView.load(dogPhoto)
         }
@@ -38,10 +42,14 @@ class DogPhotoListAdapter(private val listener: Listener, private val photoList:
             dogImageView.setOnClickListener {
                 listener.onImageClicked(absoluteAdapterPosition)
             }
+            favorites.setOnClickListener{
+                listener.onImageButtonClickAdd(favorites, absoluteAdapterPosition)
+            }
         }
     }
 
     interface Listener {
         fun onImageClicked(index: Int)
+        fun onImageButtonClickAdd(view: ImageButton, index: Int)
     }
 }

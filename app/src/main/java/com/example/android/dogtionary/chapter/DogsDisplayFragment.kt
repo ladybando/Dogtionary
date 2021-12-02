@@ -11,8 +11,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import coil.load
+import com.example.android.dogtionary.data.DogImageApplication
 import com.example.android.dogtionary.databinding.FragmentDogsDisplayBinding
 import com.example.android.dogtionary.model.DogViewModel
+import com.example.android.dogtionary.model.DogViewModelFactory
 
 class DogsDisplayFragment : Fragment() {
     /*
@@ -23,7 +25,9 @@ class DogsDisplayFragment : Fragment() {
     * set blur and rounded corners to images https://coil-kt.github.io/coil/transformations/
     */
 
-    private val viewModel: DogViewModel by activityViewModels()
+    private val viewModel: DogViewModel by activityViewModels{
+        DogViewModelFactory((activity?.application as DogImageApplication).database.dogDao())
+    }
     private var _binding: FragmentDogsDisplayBinding? = null
     private val binding get() = _binding!!
     private lateinit var dogImageView: ImageView
@@ -44,48 +48,4 @@ class DogsDisplayFragment : Fragment() {
         val passedPhoto = args.passedBackDogPhoto
         dogImageView.load(passedPhoto)
     }
-    /* private fun showRandomPhoto() {
-         *//*Observes dogPhoto from View Model and uses the Coil library
-         * to load an image into an [ImageView].*//*
-      viewModel.dogPhoto.observe(this.requireActivity(), {
-            val dogPhotoList = it.imageUrl
-            for (dogPhoto in dogPhotoList!!) {
-                val imgUri = dogPhoto.toUri().buildUpon().scheme("https").build()
-                binding.dogImageView.load(imgUri)
-            }
-        })
-        button.setOnClickListener {
-            viewModel.getNewPhoto()
-        }
-
-    }
-    private fun showPhotoByBreed() {
-        nextButton.setOnClickListener {
-            //allows enter key to initiate search by calling getPhotoByBreed() method
-            textView.setOnKeyListener { _, keyCode, keyEvent ->
-                if (keyCode == KeyEvent.KEYCODE_ENTER && keyEvent.action == KeyEvent.ACTION_DOWN) {
-                    //close keyboard after key press
-                    textView.hideKeyboard()
-                    //calls getPhotoByBreed() method if text view has characters && if the statusResponse is "success"
-                    if (textView.text.isNotEmpty() && !viewModel.status.value.equals("success") ) {
-                        viewModel.getPhotoByBreed(textView.text.toString().lowercase())
-                    } else {
-                        Snackbar
-                            .make(this.requireContext(),
-                                textView,
-                                "Rotten doggy treats, try another search term!",
-                                Snackbar.LENGTH_SHORT)
-                            .show()
-                    }
-                    return@setOnKeyListener true
-                } else {
-                    false
-                }
-            }
-        }
-    }
-    private fun View.hideKeyboard() {
-        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(windowToken, 0)
-    }*/
 }

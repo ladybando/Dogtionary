@@ -69,23 +69,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/libre_franklin"
-                android:text="@string/next"
+                android:text="Back"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#009688"
+                android:textColor="#00796B"
                 android:typeface="normal" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/submit_button"
-                style="?attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/libre_franklin"
-                android:text="@string/submit"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#009688"
-                android:typeface="normal" />
         </LinearLayout>
-
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

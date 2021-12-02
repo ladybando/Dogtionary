@@ -3,6 +3,7 @@
     package="com.example.android.dogtionary">
     <uses-permission android:name="android.permission.INTERNET" />
     <application
+        android:name=".data.DogImageApplication"
         android:allowBackup="false"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
