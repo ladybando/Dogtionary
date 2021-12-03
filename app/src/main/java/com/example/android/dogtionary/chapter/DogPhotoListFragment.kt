@@ -59,12 +59,7 @@ class DogPhotoListFragment : Fragment(), DogPhotoListAdapter.Listener {
     override fun onImageButtonClickAdd(view: ImageButton, index: Int) {
         //when user clicks heart on image, change color and add image to database
         val dogImage = Dog(viewModel.dogPhoto.value!!.imageUrl!![index])
-       // if (view.equals(R.drawable.ic_not_favorite))
-            view.setImageResource(R.drawable.ic_favorite)
-            viewModel.insertDogImage(dogImage)
-        //when user clicks image again, change color and delete from database
-        /*}else if (view.equals(R.drawable.ic_favorite)) {
-
-        }*/
+        view.setImageResource(R.drawable.ic_favorite)
+        viewModel.insertDogImage(dogImage)
     }
 }

@@ -17,8 +17,8 @@
             android:name="passedToDogPhoto"
             app:argType="string" />
         <action
-            android:id="@+id/action_dogPhotoListFragment_to_previousImageFragment"
-            app:destination="@id/previousImageFragment" />
+            android:id="@+id/action_dogPhotoListFragment_to_favoriteListFragment"
+            app:destination="@id/favoriteListFragment" />
     </fragment>
     <fragment
         android:id="@+id/dogsDisplayFragment"
@@ -33,12 +33,12 @@
             app:argType="string" />
     </fragment>
     <fragment
-        android:id="@+id/previousImageFragment"
-        android:name="com.example.android.dogtionary.chapter.PreviousImageFragment"
-        android:label="fragment_previous_image"
-        tools:layout="@layout/fragment_previous_image" >
+        android:id="@+id/favoriteListFragment"
+        android:name="com.example.android.dogtionary.chapter.FavoriteListFragment"
+        android:label="FavoriteListFragment"
+        tools:layout="@layout/fragment_favorite_list">
         <action
-            android:id="@+id/action_previousImageFragment_to_dogPhotoListFragment"
+            android:id="@+id/action_favoriteListFragment_to_dogPhotoListFragment"
             app:destination="@id/dogPhotoListFragment" />
         <argument
             android:name="passBackPhoto"

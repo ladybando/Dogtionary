@@ -12,7 +12,9 @@ import android.widget.SearchView
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.android.dogtionary.data.Dog
@@ -66,7 +68,8 @@ class MainActivity : AppCompatActivity() {
         closeIcon.setImageResource(R.drawable.ic_clear)
 
         //change EditText text color
-        val searchTextId = searchView.context.resources.getIdentifier("android:id/search_src_text", null, null)
+        val searchTextId =
+            searchView.context.resources.getIdentifier("android:id/search_src_text", null, null)
         val textView = searchView.findViewById<TextView>(searchTextId)
         textView.setTextColor(Color.BLACK)
 
@@ -77,14 +80,16 @@ class MainActivity : AppCompatActivity() {
                 //Returns the query string currently in the text field. checks if string is empty?
                 searchView.setQuery("", false)
                 search.collapseActionView()
-                if (viewModel.status.value.equals("success")) {
+                if (!viewModel.status.value.equals("success")) {
                     viewModel.getPhotoByBreed(userQuery)
                 } else {
                     Snackbar
-                        .make(this@MainActivity,
+                        .make(
+                            this@MainActivity,
                             binding.cl,//needs to be SearchView textView
                             "Rotten doggy treats, try another search term!",
-                            Snackbar.LENGTH_SHORT)
+                            Snackbar.LENGTH_SHORT
+                        )
                         .show()
                 }
                 return true
@@ -99,9 +104,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.favorite -> {
-            //when user clicks favorites open favorites list
-            /*how to pass data from activity to fragmen with safe args. maybe have to use bundle*/
-            navController.navigate(R.id.action_dogPhotoListFragment_to_previousImageFragment)
+            //when user clicks favorites open favorites list and show images from database
+        val dogImageToPass = viewModel.dogPhoto.value!!.imageUrl!!
+            val bundle = bundleOf("dogPhoto" to dogImageToPass )
+            findNavController(R.id.dog_display_container)
+                .setGraph(R.navigation.nav_graph, bundle)
+
+            navController.navigate(R.id.action_dogPhotoListFragment_to_favoriteListFragment)
             Log.i("MainActivity", "Favorites clicked!")
             true
         }

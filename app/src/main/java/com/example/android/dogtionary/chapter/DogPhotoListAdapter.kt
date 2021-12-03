@@ -17,9 +17,13 @@ class DogPhotoListAdapter(private val listener: Listener, private val photoList:
     RecyclerView.Adapter<DogPhotoListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(FragmentDogPhotoLayoutBinding.inflate(LayoutInflater.from(parent.context),
-            parent,
-            false))
+        return ViewHolder(
+            FragmentDogPhotoLayoutBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -34,6 +38,7 @@ class DogPhotoListAdapter(private val listener: Listener, private val photoList:
 
         private val favorites: ImageButton = binding.addToFavIcon
         private val dogImageView: ImageView = binding.dogImageView
+
         fun bind(dogPhoto: String) {
             dogImageView.load(dogPhoto)
         }
@@ -42,7 +47,7 @@ class DogPhotoListAdapter(private val listener: Listener, private val photoList:
             dogImageView.setOnClickListener {
                 listener.onImageClicked(absoluteAdapterPosition)
             }
-            favorites.setOnClickListener{
+            favorites.setOnClickListener {
                 listener.onImageButtonClickAdd(favorites, absoluteAdapterPosition)
             }
         }

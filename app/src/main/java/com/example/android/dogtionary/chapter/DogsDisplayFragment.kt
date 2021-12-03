@@ -9,6 +9,7 @@ import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.android.dogtionary.data.DogImageApplication
@@ -47,5 +48,10 @@ class DogsDisplayFragment : Fragment() {
         dogImageView = binding.dogImageView
         val passedPhoto = args.passedBackDogPhoto
         dogImageView.load(passedPhoto)
+
+        binding.nextButton.setOnClickListener {
+            val action = DogsDisplayFragmentDirections.actionDogsDisplayFragmentToDogPhotoListFragment(passedPhoto)
+            findNavController().navigate(action)
+        }
     }
 }
