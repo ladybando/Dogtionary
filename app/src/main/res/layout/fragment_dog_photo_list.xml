@@ -21,6 +21,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:spanCount="3"
-        tools:context=".chapter.DogPhotoListFragment"
+        tools:context=".ui.DogPhotoListFragment"
         tools:listitem="@layout/fragment_dog_photo_layout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

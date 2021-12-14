@@ -17,9 +17,8 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.android.dogtionary.data.Dog
 import com.example.android.dogtionary.databinding.ActivityMainBinding
-import com.example.android.dogtionary.model.DogViewModel
+import com.example.android.dogtionary.model.ImagesViewModel
 import com.google.android.material.snackbar.Snackbar
 
 //todo add database functionality for favorites only
@@ -27,7 +26,7 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-    private val viewModel: DogViewModel by viewModels()
+    private val viewModel: ImagesViewModel by viewModels()
     private lateinit var searchView: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {

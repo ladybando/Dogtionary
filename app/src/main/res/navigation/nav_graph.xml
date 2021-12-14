@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/dogPhotoListFragment"
-        android:name="com.example.android.dogtionary.chapter.DogPhotoListFragment"
+        android:name="com.example.android.dogtionary.ui.DogPhotoListFragment"
         android:label="fragment_dog_photo_list"
         tools:layout="@layout/fragment_dog_photo_list" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/dogsDisplayFragment"
-        android:name="com.example.android.dogtionary.chapter.DogsDisplayFragment"
+        android:name="com.example.android.dogtionary.ui.DogsDisplayFragment"
         android:label="DogsDisplayFragment"
         tools:layout="@layout/fragment_dogs_display">
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteListFragment"
-        android:name="com.example.android.dogtionary.chapter.FavoriteListFragment"
+        android:name="com.example.android.dogtionary.ui.FavoriteListFragment"
         android:label="FavoriteListFragment"
         tools:layout="@layout/fragment_favorite_list">
         <action

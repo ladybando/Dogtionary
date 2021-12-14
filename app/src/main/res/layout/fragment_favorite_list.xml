@@ -21,6 +21,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:spanCount="3"
-        tools:context=".chapter.FavoriteListFragment"
+        tools:context=".ui.FavoriteListFragment"
         tools:listitem="@layout/fragment_favorite_layout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

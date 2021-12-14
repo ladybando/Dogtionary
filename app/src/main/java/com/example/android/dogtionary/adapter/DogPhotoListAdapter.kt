@@ -1,13 +1,11 @@
-package com.example.android.dogtionary.chapter
+package com.example.android.dogtionary.adapter
 
-import android.media.Image
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import coil.load
-import com.example.android.dogtionary.R
 import com.example.android.dogtionary.databinding.FragmentDogPhotoLayoutBinding
 
 /**

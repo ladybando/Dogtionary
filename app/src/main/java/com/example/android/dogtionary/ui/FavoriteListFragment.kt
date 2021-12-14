@@ -1,4 +1,4 @@
-package com.example.android.dogtionary.chapter
+package com.example.android.dogtionary.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,16 +8,18 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.android.dogtionary.R
+import com.example.android.dogtionary.adapter.FavoriteListAdapter
 import com.example.android.dogtionary.data.Dog
 import com.example.android.dogtionary.data.DogImageApplication
 import com.example.android.dogtionary.databinding.FragmentFavoriteListBinding
 import com.example.android.dogtionary.model.DogViewModel
 import com.example.android.dogtionary.model.DogViewModelFactory
 
+
 /**
  * A fragment representing a list of Items.
  */
-class FavoriteListFragment : Fragment(), FavoriteListAdapter.Listener  {
+class FavoriteListFragment : Fragment(), FavoriteListAdapter.Listener {
     private var _binding : FragmentFavoriteListBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: FavoriteListAdapter

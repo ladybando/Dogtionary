@@ -15,7 +15,7 @@
             android:focusable="true"
             android:checkable="true"
             android:padding="2dp"
-            tools:context="com.example.android.dogtionary.chapter.DogsDisplayFragment">
+            tools:context="com.example.android.dogtionary.ui.DogsDisplayFragment">
 
             <ImageView
                 android:id="@+id/dog_image_view"

@@ -9,7 +9,6 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.android.dogtionary.R
-import com.example.android.dogtionary.chapter.DogPhotoListAdapter
 import com.example.android.dogtionary.network.DogPhoto
 import okhttp3.internal.notify
 

@@ -1,4 +1,4 @@
-package com.example.android.dogtionary.chapter
+package com.example.android.dogtionary.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater

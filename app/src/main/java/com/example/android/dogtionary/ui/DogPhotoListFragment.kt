@@ -1,4 +1,4 @@
-package com.example.android.dogtionary.chapter
+package com.example.android.dogtionary.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.android.dogtionary.R
+import com.example.android.dogtionary.adapter.DogPhotoListAdapter
 import com.example.android.dogtionary.data.Dog
 import com.example.android.dogtionary.data.DogImageApplication
 import com.example.android.dogtionary.databinding.FragmentDogPhotoListBinding
@@ -48,12 +49,12 @@ class DogPhotoListFragment : Fragment(), DogPhotoListAdapter.Listener {
     override fun onImageClicked(index: Int) {
         viewModel.dogPhoto.observe(this.requireActivity(), {
             val dogPhoto = it.imageUrl!![index]
-            val action = DogPhotoListFragmentDirections
-                .actionDogPhotoListFragmentToDogsDisplayFragment(dogPhoto)
+            val action = DogPhotoListFragmentDirections.actionDogPhotoListFragmentToDogsDisplayFragment(
+                    dogPhoto
+                )
             adapter.notifyItemChanged(index)
             findNavController().navigate(action)
         })
-
     }
 
     override fun onImageButtonClickAdd(view: ImageButton, index: Int) {
