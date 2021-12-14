@@ -15,7 +15,7 @@
 * Download the zip file
 
 # Demo
-![DogDemo](https://github.com/ladybando/Dogtionary/blob/main/app/demo/DoggiesList.gif)
+![DogDemo](https://github.com/ladybando/TheDoggieSaurus/blob/main/app/demo/Doggies.gif)
 
 # Resources
 
