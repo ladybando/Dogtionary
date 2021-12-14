@@ -3,11 +3,10 @@ package com.example.android.dogtionary.model
 import androidx.lifecycle.*
 import com.example.android.dogtionary.data.Dog
 import com.example.android.dogtionary.data.DogDao
-import com.example.android.dogtionary.network.DogPhoto
-import com.example.android.dogtionary.network.DogPhotoApi
+import com.example.android.dogtionary.network.*
 import kotlinx.coroutines.launch
 
-class DogViewModel(private val dogDao: DogDao) : ViewModel() {
+class ImagesViewModel(private val dogDao: DogDao) : ViewModel() {
 
     // The internal MutableLiveData that stores the status of the most recent request
     private val _dogPhoto = MutableLiveData<DogPhoto>()
@@ -16,6 +15,9 @@ class DogViewModel(private val dogDao: DogDao) : ViewModel() {
 
     private val _status = MutableLiveData<String>()
     val status:LiveData<String> = _status
+
+    private val _unsplashPhoto = MutableLiveData<UnsplashPhoto>()
+    val unsplashPhoto: LiveData<UnsplashPhoto> = _unsplashPhoto
 
     /**
      * Call getNewPhoto() on init so we can display status immediately.
@@ -31,6 +33,7 @@ class DogViewModel(private val dogDao: DogDao) : ViewModel() {
         try {
             viewModelScope.launch {
                 _dogPhoto.value = DogPhotoApi.retrofitService.getRandomPhoto()
+                _unsplashPhoto.value = UnsplashApi.retrofitService.getRandomImage()
             }
         } catch (e: Exception) {
             "Failure: ${e.message}"
@@ -71,11 +74,11 @@ class DogViewModel(private val dogDao: DogDao) : ViewModel() {
     }
 }
 
-class DogViewModelFactory(private val dogDao: DogDao) : ViewModelProvider.Factory {
+class ImagesViewModelFactory(private val dogDao: DogDao) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(DogViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(ImagesViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return DogViewModel(dogDao) as T
+            return ImagesViewModel(dogDao) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

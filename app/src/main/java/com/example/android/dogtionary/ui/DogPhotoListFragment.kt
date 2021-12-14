@@ -13,8 +13,8 @@ import com.example.android.dogtionary.adapter.DogPhotoListAdapter
 import com.example.android.dogtionary.data.Dog
 import com.example.android.dogtionary.data.DogImageApplication
 import com.example.android.dogtionary.databinding.FragmentDogPhotoListBinding
-import com.example.android.dogtionary.model.DogViewModel
-import com.example.android.dogtionary.model.DogViewModelFactory
+import com.example.android.dogtionary.model.ImagesViewModel
+import com.example.android.dogtionary.model.ImagesViewModelFactory
 
 /**
  * A fragment representing a list of DogPhotos.
@@ -25,8 +25,8 @@ class DogPhotoListFragment : Fragment(), DogPhotoListAdapter.Listener {
     private var _binding: FragmentDogPhotoListBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: DogPhotoListAdapter
-    private val viewModel: DogViewModel by activityViewModels {
-        DogViewModelFactory((activity?.application as DogImageApplication).database.dogDao())
+    private val viewModel: ImagesViewModel by activityViewModels {
+        ImagesViewModelFactory((activity?.application as DogImageApplication).database.dogDao())
     }
 
     override fun onCreateView(

@@ -12,8 +12,8 @@ import com.example.android.dogtionary.adapter.FavoriteListAdapter
 import com.example.android.dogtionary.data.Dog
 import com.example.android.dogtionary.data.DogImageApplication
 import com.example.android.dogtionary.databinding.FragmentFavoriteListBinding
-import com.example.android.dogtionary.model.DogViewModel
-import com.example.android.dogtionary.model.DogViewModelFactory
+import com.example.android.dogtionary.model.ImagesViewModel
+import com.example.android.dogtionary.model.ImagesViewModelFactory
 
 
 /**
@@ -23,8 +23,8 @@ class FavoriteListFragment : Fragment(), FavoriteListAdapter.Listener {
     private var _binding : FragmentFavoriteListBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: FavoriteListAdapter
-    private val viewModel: DogViewModel by activityViewModels {
-        DogViewModelFactory((activity?.application as DogImageApplication).database.dogDao())
+    private val viewModel: ImagesViewModel by activityViewModels {
+        ImagesViewModelFactory((activity?.application as DogImageApplication).database.dogDao())
     }
 
     override fun onCreateView(
