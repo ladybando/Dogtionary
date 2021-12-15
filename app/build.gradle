@@ -42,9 +42,9 @@ android {
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
     // ViewModel
@@ -67,14 +67,17 @@ dependencies {
     //http logging
     implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
     //ViewModel in fragment
-    implementation 'androidx.fragment:fragment-ktx:1.3.6'
+    implementation 'androidx.fragment:fragment-ktx:1.4.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.31")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.0")
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     // Room
     implementation "androidx.room:room-runtime:2.3.0"
     implementation 'androidx.room:room-common:2.3.0'
+    implementation 'com.google.mlkit:vision-common:16.7.0'
+    implementation 'com.google.mlkit:image-labeling-common:17.2.0'
+    implementation 'com.google.mlkit:image-labeling-default-common:16.0.2'
     kapt "androidx.room:room-compiler:2.3.0"
     implementation 'androidx.room:room-ktx:2.3.0'
     testImplementation 'junit:junit:4.+'

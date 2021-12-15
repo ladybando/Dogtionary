@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL = "https://images.unsplash.com/"
+private const val BASE_URL = "https://source.unsplash.com/"
 
 
 private val networkLoggingInterceptor =
@@ -26,7 +26,7 @@ private val retrofit = Retrofit.Builder()
 
 interface UnsplashApiService{
     //endpoint photos/random
-    @GET("photos/random")
+    @GET("random")
     suspend fun getRandomImage(): UnsplashPhoto
 }
 

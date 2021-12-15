@@ -21,9 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
         android:layout_marginEnd="200dp"
-        android:srcCompat="@drawable/ic_camera"
+        app:srcCompat="@drawable/ic_camera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
