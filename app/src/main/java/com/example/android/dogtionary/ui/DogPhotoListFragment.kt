@@ -20,6 +20,8 @@ import com.example.android.dogtionary.model.ImagesViewModelFactory
  * A fragment representing a list of DogPhotos.
  */
 
+/*something is not lifecycle aware https://stackoverflow.com/questions/55631819/fragment-not-associated-with-a-fragment-manager
+* if i click the favorites button in the image and then the search view and then search for a dog breed it crashes*/
 //todo add database functionality for favorites only
 class DogPhotoListFragment : Fragment(), DogPhotoListAdapter.Listener {
     private var _binding: FragmentDogPhotoListBinding? = null

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/app_bar_search"
@@ -14,6 +13,12 @@
         android:title="@string/favorite"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_favorite"/>
+
+    <item
+        android:id="@+id/image_tag"
+        android:title="@string/tag_items_in_image"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_image_label" />
     <item android:title="@string/settings"
-        android:icon="@drawable/ic_menu_icon"/>
+    android:icon="@drawable/ic_menu_icon"/>
 </menu>

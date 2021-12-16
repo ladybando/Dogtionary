@@ -47,7 +47,35 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.options_menu, menu)
+        searchOptions(menu)
+        return true
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.favorite -> {
+            //when user clicks favorites open favorites list and show images from database
+            val dogImageToPass = viewModel.dogPhoto.value!!.imageUrl!!
+            val bundle = bundleOf("dogPhoto" to dogImageToPass)
+            findNavController(R.id.dog_display_container)
+                .setGraph(R.navigation.nav_graph, bundle)
+
+            navController.navigate(R.id.action_dogPhotoListFragment_to_favoriteListFragment)
+            Log.i("MainActivity", "Favorites clicked!")
+            //allow menu processing to occur here not normal menu process
+            true
+        }
+        R.id.image_tag -> {
+            findNavController(R.id.dog_display_container)
+            navController.navigate(R.id.action_dogPhotoListFragment_to_unsplashDetectImageFragment)
+            //allow menu processing to occur here not normal menu process
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun searchOptions(menu: Menu) {
         val search = menu.findItem(R.id.app_bar_search)
         searchView = search.actionView as SearchView
 
@@ -93,28 +121,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 return true
             }
-
             override fun onQueryTextChange(p0: String?): Boolean {
                 return false
             }
         })
-        return true
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.favorite -> {
-            //when user clicks favorites open favorites list and show images from database
-        val dogImageToPass = viewModel.dogPhoto.value!!.imageUrl!!
-            val bundle = bundleOf("dogPhoto" to dogImageToPass )
-            findNavController(R.id.dog_display_container)
-                .setGraph(R.navigation.nav_graph, bundle)
-
-            navController.navigate(R.id.action_dogPhotoListFragment_to_favoriteListFragment)
-            Log.i("MainActivity", "Favorites clicked!")
-            true
-        }
-        else -> {
-            super.onOptionsItemSelected(item)
-        }
     }
 }

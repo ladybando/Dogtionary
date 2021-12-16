@@ -8,7 +8,7 @@ import com.google.mlkit.vision.label.ImageLabeling
 import com.google.mlkit.vision.label.defaults.ImageLabelerOptions
 
 class MlKitDetection {
-    private fun analyze(imageBitmap: Bitmap, view: TextView) {
+    fun analyze(imageBitmap: Bitmap, view: TextView) {
         val image = InputImage.fromBitmap(imageBitmap, 0)
         val labeler = ImageLabeling.getClient(ImageLabelerOptions.DEFAULT_OPTIONS)
         var text = ""
@@ -21,8 +21,7 @@ class MlKitDetection {
                     confidence = label.confidence
                     Log.i("Frank", "LOOP>     [$text]:$confidence")
                 }
-                view.text = text
-                view.text = confidence.toString()
+                view.text = "$text: $confidence"
                 Log.i("ImageFrag", text + confidence)
             }
             .addOnFailureListener { e -> Log.d("ImageError", "Error with labeling: $e") }

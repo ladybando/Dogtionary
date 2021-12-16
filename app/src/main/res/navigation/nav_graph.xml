@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_dogPhotoListFragment_to_favoriteListFragment"
             app:destination="@id/favoriteListFragment" />
+        <action
+            android:id="@+id/action_dogPhotoListFragment_to_unsplashDetectImageFragment"
+            app:destination="@id/unsplashDetectImageFragment" />
     </fragment>
     <fragment
         android:id="@+id/dogsDisplayFragment"
@@ -43,5 +46,14 @@
         <argument
             android:name="passBackPhoto"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/unsplashDetectImageFragment"
+        android:name="com.example.android.dogtionary.ui.UnsplashDetectImageFragment"
+        android:label="fragment_unsplash_detect_image"
+        tools:layout="@layout/fragment_unsplash_detect_image" >
+        <action
+            android:id="@+id/action_unsplashDetectImageFragment_to_dogPhotoListFragment"
+            app:destination="@id/dogPhotoListFragment" />
     </fragment>
 </navigation>

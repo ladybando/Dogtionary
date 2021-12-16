@@ -16,8 +16,8 @@ class ImagesViewModel(private val dogDao: DogDao) : ViewModel() {
     private val _status = MutableLiveData<String>()
     val status:LiveData<String> = _status
 
-    private val _unsplashPhoto = MutableLiveData<UnsplashPhoto>()
-    val unsplashPhoto: LiveData<UnsplashPhoto> = _unsplashPhoto
+    private val _unsplashPhoto = MutableLiveData<String>()
+    val unsplashPhoto: LiveData<String> = _unsplashPhoto
 
     /**
      * Call getNewPhoto() on init so we can display status immediately.
