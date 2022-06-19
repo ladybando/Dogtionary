@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface DogDao{
+
     @Query("SELECT * FROM images WHERE image = :imageUrl")
     suspend fun getImage(imageUrl: String): Dog
 

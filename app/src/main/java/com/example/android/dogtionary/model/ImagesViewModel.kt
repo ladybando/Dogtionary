@@ -1,11 +1,13 @@
 package com.example.android.dogtionary.model
 
 import androidx.lifecycle.*
+import com.example.android.dogtionary.BuildConfig
 import com.example.android.dogtionary.data.Dog
 import com.example.android.dogtionary.data.DogDao
 import com.example.android.dogtionary.network.*
 import kotlinx.coroutines.launch
-
+//i may remove unsplash code from project
+//val CLIENT_ID = BuildConfig.UNSPLASH_ACCESS_KEY
 class ImagesViewModel(private val dogDao: DogDao) : ViewModel() {
 
     // The internal MutableLiveData that stores the status of the most recent request
@@ -16,8 +18,8 @@ class ImagesViewModel(private val dogDao: DogDao) : ViewModel() {
     private val _status = MutableLiveData<String>()
     val status:LiveData<String> = _status
 
-    private val _unsplashPhoto = MutableLiveData<String>()
-    val unsplashPhoto: LiveData<String> = _unsplashPhoto
+    private val _unsplashPhoto = MutableLiveData<UnsplashImage>()
+    val unsplashPhoto: LiveData<UnsplashImage> = _unsplashPhoto
 
     /**
      * Call getNewPhoto() on init so we can display status immediately.
@@ -33,7 +35,7 @@ class ImagesViewModel(private val dogDao: DogDao) : ViewModel() {
         try {
             viewModelScope.launch {
                 _dogPhoto.value = DogPhotoApi.retrofitService.getRandomPhoto()
-                _unsplashPhoto.value = UnsplashApi.retrofitService.getRandomImage()
+               // _unsplashPhoto.value = UnsplashApi.retrofitService.getRandomImage(CLIENT_ID)
             }
         } catch (e: Exception) {
             "Failure: ${e.message}"

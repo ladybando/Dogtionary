@@ -41,8 +41,7 @@ class DogsDisplayFragment : Fragment() {
 
         binding.nextButton.setOnClickListener {
             val action = DogsDisplayFragmentDirections.actionDogsDisplayFragmentToDogPhotoListFragment(
-                    passedPhoto
-                )
+                    passedPhoto)
             findNavController().navigate(action)
         }
     }

@@ -1,19 +1,14 @@
 package com.example.android.dogtionary.ui
 
-import android.app.Activity
-import android.content.ActivityNotFoundException
-import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import coil.load
 import com.example.android.dogtionary.data.DogImageApplication
 import com.example.android.dogtionary.databinding.FragmentUnsplashDetectImageBinding
 import com.example.android.dogtionary.mlkit.MlKitDetection
@@ -44,28 +39,18 @@ class UnsplashDetectImageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.pictureButton.setOnClickListener { openCamera() }
+        val image = viewModel.unsplashPhoto.value!!.urls.full
+        Log.d("unsplashfrag", image)
     }
 
-    private val getResult = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()) {
-        val imageBitmap = it.data!!.extras!!.get("data") as Bitmap
-        if (it.resultCode == Activity.RESULT_OK) {
-            binding.imageView.setImageBitmap(imageBitmap)
-        }
+    private fun objectDetect(imageBitmap: Bitmap){
         binding.imageView.setOnClickListener {
             MlKitDetection().analyze(imageBitmap, binding.textView)
         }
     }
 
     private fun openCamera() {
-        val grabUnsplashImageIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-      /*  val grabUnsplashImageIntent = Intent(Intent.ACTION_VIEW)
-        //needs activity to handle intent. find another option to pass url maybe not intent
-        grabUnsplashImageIntent.data = Uri.parse(viewModel.unsplashPhoto.toString())*/
-        try {
-            getResult.launch(grabUnsplashImageIntent)
-        } catch (e: ActivityNotFoundException) {
-            Log.i("ImageFrag1", "Error message: $e")
-        }
+        val grabUnsplashImage = viewModel.unsplashPhoto.value!!.urls.full
+        binding.imageView.load(grabUnsplashImage)
     }
 }

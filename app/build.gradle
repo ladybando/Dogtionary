@@ -4,6 +4,13 @@ plugins {
     id("androidx.navigation.safeargs")
     id 'kotlin-kapt'
 }
+def getLocalProperties() {
+    Properties props = new Properties()
+    if (file('../local.properties').exists()) {
+        props.load(new FileInputStream(file('../local.properties')))
+    }
+    return props
+}
 
 android {
     compileSdk 31
