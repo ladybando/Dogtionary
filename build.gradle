@@ -1,5 +1,19 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext{
+        coreKotlinVersion = "1.8.0"
+        kotlinReflectVersion = "1.7.10"
+        materialVersion = "1.6.1"
+        navigationVersion = "2.5.1"
+        lifecycleVersion = "2.5.1"
+        retrofitVersion = "2.9.0"
+        roomVersion = "2.4.3"
+        mlkitVersionImage = "17.0.7"
+        mlkitVersion = "17.2.0"
+        mlkitVersionObject = "17.0.0"
+        mlkitLabelVersion = "16.0.8"
+        viewmodelVersion = "1.5.2"
+    }
     repositories {
         google()
         mavenCentral()

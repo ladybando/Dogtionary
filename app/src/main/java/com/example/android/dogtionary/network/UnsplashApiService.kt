@@ -1,6 +1,5 @@
 package com.example.android.dogtionary.network
 
-import com.example.android.dogtionary.BuildConfig
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -8,10 +7,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Headers
 import retrofit2.http.Query
 
-/*
+
 private const val BASE_URL = "https://api.unsplash.com/?"
 //private  val CLIENT_ID = BuildConfig.UNSPLASH_ACCESS_KEY
 
@@ -39,4 +37,4 @@ object UnsplashApi{
     val retrofitService: UnsplashApiService by lazy {
         retrofit.create(UnsplashApiService::class.java)
     }
-}*/
+}

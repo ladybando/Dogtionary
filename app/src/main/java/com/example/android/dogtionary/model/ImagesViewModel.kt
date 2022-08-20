@@ -1,7 +1,6 @@
 package com.example.android.dogtionary.model
 
 import androidx.lifecycle.*
-import com.example.android.dogtionary.BuildConfig
 import com.example.android.dogtionary.data.Dog
 import com.example.android.dogtionary.data.DogDao
 import com.example.android.dogtionary.network.*
@@ -63,7 +62,7 @@ class ImagesViewModel(private val dogDao: DogDao) : ViewModel() {
         viewModelScope.launch {
             dogDao.deleteImage(dog)
         }
-    }
+        }
 
     fun getImage(imageUrl: String){
         viewModelScope.launch {

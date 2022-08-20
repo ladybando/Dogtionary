@@ -4,13 +4,6 @@ plugins {
     id("androidx.navigation.safeargs")
     id 'kotlin-kapt'
 }
-def getLocalProperties() {
-    Properties props = new Properties()
-    if (file('../local.properties').exists()) {
-        props.load(new FileInputStream(file('../local.properties')))
-    }
-    return props
-}
 
 android {
     compileSdk 31
@@ -48,16 +41,14 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
-    // ViewModel
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    implementation("androidx.core:core-ktx:$coreKotlinVersion")
+    implementation "androidx.appcompat:appcompat:1.5.0"
+    implementation("com.google.android.material:material:$materialVersion")
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+      // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
     // LiveData
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
     //Fragment and access to kotlin property delegate
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
@@ -69,33 +60,46 @@ dependencies {
     // Coil
     implementation "io.coil-kt:coil:1.4.0"
     //Navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
-    //ViewModel in activity
-    implementation 'androidx.activity:activity-ktx:1.4.0'
+    implementation( "androidx.navigation:navigation-fragment-ktx:$navigationVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
+    implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
     //http logging
     implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
+    //ViewModel in activity
+    implementation("androidx.activity:activity-ktx:$viewmodelVersion")
     //ViewModel in fragment
-    implementation 'androidx.fragment:fragment-ktx:1.4.0'
+    implementation("androidx.fragment:fragment-ktx:$viewmodelVersion")
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.0")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinReflectVersion")
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     // Room
-    implementation "androidx.room:room-runtime:2.3.0"
-    implementation 'androidx.room:room-common:2.3.0'
-    implementation 'com.google.mlkit:vision-common:16.7.0'
-    implementation 'com.google.mlkit:image-labeling-common:17.2.0'
-    implementation 'com.google.mlkit:image-labeling-default-common:16.0.2'
-    kapt "androidx.room:room-compiler:2.3.0"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-common:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
     //MLKit
-    implementation 'com.google.mlkit:object-detection:16.2.7'
-    implementation 'com.google.mlkit:vision-common:16.6.0'
+    implementation("com.google.mlkit:object-detection:$mlkitVersionObject")
+    implementation("com.google.mlkit:image-labeling-default-common:$mlkitVersionObject")
+    implementation("com.google.mlkit:vision-common:$mlkitVersion")
+    implementation("com.google.mlkit:vision-common:$mlkitVersion")
+    implementation 'com.google.mlkit:image-labeling-common:18.1.0'
     //Image labeling
-    implementation 'com.google.mlkit:image-labeling:17.0.5'
-    implementation 'com.google.android.gms:play-services-mlkit-image-labeling:16.0.5'
-    implementation 'androidx.room:room-ktx:2.3.0'
-    testImplementation 'junit:junit:4.+'
+    implementation("com.google.mlkit:image-labeling:$mlkitVersionImage")
+    implementation("com.google.android.gms:play-services-mlkit-image-labeling:$mlkitLabelVersion")
+    implementation("androidx.compose.ui:ui:1.2.1")
+    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation("androidx.compose.foundation:foundation:1.2.1")
+    // Material Design
+    implementation("androidx.compose.material:material:1.2.1")
+    // Material design icons
+    implementation("androidx.compose.material:material-icons-core:1.2.1")
+    implementation("androidx.compose.material:material-icons-extended:1.2.1")
+    // Integration with observables
+    implementation("androidx.compose.runtime:runtime-livedata:1.2.1")
+    implementation("androidx.compose.runtime:runtime-rxjava2:1.2.1")
+    testImplementation 'junit:junit:5.7.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
